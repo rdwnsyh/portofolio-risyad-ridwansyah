@@ -1,6 +1,7 @@
 import { About } from "@/components/sections/About";
 import { Experience } from "@/components/sections/Experience";
 import { Hero } from "@/components/sections/Hero";
+import { Projects } from "@/components/sections/Projects";
 import { StatsStrip } from "@/components/sections/StatsStrip";
 
 export default function Home() {
@@ -10,7 +11,8 @@ export default function Home() {
       <StatsStrip />
       <About />
       <Experience />
-      {/* Bagian lain (#projects, Skills, Contact) menyusul */}
+      <Projects />
+      {/* Bagian lain (Skills, Contact) menyusul */}
     </main>
   );
 }

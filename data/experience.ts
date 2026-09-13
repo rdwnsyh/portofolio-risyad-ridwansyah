@@ -1,33 +1,20 @@
-// TODO: Ganti setiap `period` dengan periode magang yang sebenarnya,
-// contoh: "Agu 2024 – Des 2024". Urutan di bawah ini kronologis terbalik
-// (terbaru dulu) — tukar posisi item jika urutan sebenarnya berbeda.
-
 export const experience = {
   slug: "// experience",
   num: "02",
   label: "Pengalaman",
   title: "Pengalaman",
   accent: "Kerja",
-  sub: "Tiga magang industri — fullstack development, software quality assurance, dan web development.",
+  sub: "Tiga magang industri — software quality assurance, fullstack development, dan web development.",
   endNote: "tiga pengalaman, satu standar:",
   endAccent: "siap produksi",
   items: [
     {
-      role: "Fullstack Developer Intern",
-      company: "Museum Geologi Bandung",
-      initials: "MG",
-      period: "Bulan 20XX – Bulan 20XX",
-      description:
-        "Membangun sistem manajemen koleksi KaGeo yang terintegrasi dengan CAS Single Sign-On dan REST API Kementerian ESDM.",
-      mainTech: ["Laravel", "React.js", "PostgreSQL", "REST API", "CAS SSO"],
-    },
-    {
       role: "Software Quality Assurance Intern",
       company: "PT Primalogic Global Teknologi",
       initials: "PG",
-      period: "Bulan 20XX – Bulan 20XX",
+      period: "Mar 2026 – Jun 2026",
       description:
-        "Mengelola defect tracking dan bug life cycle untuk sistem Dana Pensiun PT Pupuk Kalimantan Timur — mengeksekusi Vendor Integration Testing serta black-box testing, mengawal 102 bug hingga 84% terselesaikan dan sistem stabil siap serah terima.",
+        "Menguji modul Administrator, Akuntansi, dan Keanggotaan sistem Dana Pensiun PT Pupuk Kaltim dengan Black-box Testing dan Vendor Integration Testing (VIT). Berfokus pada alur Defect Tracking dan Bug Life Cycle, kolaborasi bersama tim backend mengidentifikasi serta menyelesaikan 102 bug (resolution rate 84%) dan menekan eror kritis sebelum handover ke klien.",
       mainTech: [
         "Black-box Testing",
         "Vendor Integration Testing",
@@ -36,13 +23,29 @@ export const experience = {
       ],
     },
     {
+      role: "Fullstack Developer Intern",
+      company: "Museum Geologi Bandung",
+      initials: "MG",
+      period: "Jun 2024 – Des 2024",
+      description:
+        "Merancang sistem manajemen koleksi KaGeo untuk mentransformasi pencatatan manual museum menjadi platform digital tersentralisasi. Terintegrasi dengan REST API Kementerian ESDM serta CAS Single Sign-On (SSO), dilanjutkan optimasi backend hingga berhasil deploy ke production.",
+      mainTech: [
+        "Laravel",
+        "React.js",
+        "Tailwind CSS",
+        "PostgreSQL",
+        "REST API",
+        "CAS SSO",
+      ],
+    },
+    {
       role: "Web Developer Intern",
       company: "Balai Besar Survei & Pemetaan Geologi Kelautan",
       initials: "BB",
-      period: "Bulan 20XX – Bulan 20XX",
+      period: "Jun 2022 – Sep 2022",
       description:
-        "Mengembangkan aplikasi web operasional untuk manajemen rapat dan pemetaan riset.",
-      mainTech: ["Aplikasi Web", "Sistem Informasi", "Manajemen Rapat"],
+        "Mendukung digitalisasi internal dengan mengembangkan dua aplikasi web operasional untuk manajemen rapat dan akses peta riset, dengan perancangan basis data terstruktur untuk menjaga keandalan server-side dan mengoptimalkan alur kerja staf.",
+      mainTech: ["Laravel", "Bootstrap", "MySQL"],
     },
   ],
 } as const;
