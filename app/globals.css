@@ -1,26 +1,353 @@
 @import "tailwindcss";
 
+/* ---- Token editorial (adaptasi dark dari referensi) ---- */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #020617; /* slate-950 */
+  --foreground: #f1f5f9; /* slate-100 */
+  --accent-primary: #6ee7b7; /* emerald-300 */
+  --accent-secondary: #7dd3fc; /* sky-300 */
+  --status-ok: #34d399; /* emerald-400 */
+  --max-width: 76rem;
+  --radius-pill: 999px;
+  --ease-standard: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-sans);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+::selection {
+  background: rgba(52, 211, 153, 0.28);
+  color: #ecfdf5;
+}
+
+:focus-visible {
+  outline: 2px solid rgba(110, 231, 183, 0.8);
+  outline-offset: 3px;
+}
+
+/* Utilitas font editorial */
+.font-display {
+  font-family: var(--font-display), "Georgia", serif;
+}
+.font-mono2 {
+  font-family: var(--font-mono2), ui-monospace, monospace;
+}
+
+/* ---- Animasi masuk ---- */
+@keyframes hero-rise {
+  from {
+    transform: translateY(110%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-fade {
+  opacity: 0;
+  animation: hero-fade-up 0.7s var(--ease-standard) forwards;
+}
+
+/* ---- Role rotator (4 role + ulangi pertama agar loop mulus) ---- */
+.hero-roles-list {
+  display: block;
+  animation: hero-roles-cycle 14s cubic-bezier(0.77, 0, 0.18, 1) 2s infinite;
+}
+
+@keyframes hero-roles-cycle {
+  0%,
+  21% {
+    transform: translateY(0);
+  }
+  25%,
+  46% {
+    transform: translateY(-1.5em);
+  }
+  50%,
+  71% {
+    transform: translateY(-3em);
+  }
+  75%,
+  96% {
+    transform: translateY(-4.5em);
+  }
+  100% {
+    transform: translateY(-6em);
+  }
+}
+
+/* ---- Marquee ticker ---- */
+.marquee {
+  overflow: clip;
+  border-top: 1px solid rgba(148, 163, 184, 0.16);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.16);
+  background: rgba(15, 23, 42, 0.55);
+}
+
+.marquee__track {
+  display: flex;
+  width: max-content;
+  animation: marquee-slide var(--marquee-duration, 36s) linear infinite;
+}
+
+.marquee:hover .marquee__track {
+  animation-play-state: paused;
+}
+
+@keyframes marquee-slide {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* ---- Doodle: coretan tergambar + stempel berputar ---- */
+.doodle-draw {
+  stroke-dasharray: 320;
+  stroke-dashoffset: 320;
+  animation: doodle-draw-in 0.9s var(--ease-standard) forwards;
+}
+
+@keyframes doodle-draw-in {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.stamp-spin {
+  animation: stamp-rotate 16s linear infinite;
+  transform-origin: 50% 50%;
+}
+
+@keyframes stamp-rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes hero-pulse-dot {
+  0% {
+    box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.45);
+  }
+  70% {
+    box-shadow: 0 0 0 9px transparent;
+  }
+  100% {
+    box-shadow: 0 0 0 0 transparent;
+  }
+}
+
+.hero-pulse-dot {
+  animation: hero-pulse-dot 2.4s ease-out infinite;
+}
+
+/* ---- Scroll cue menetes ---- */
+.hero-scroll-drip {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-scroll-drip::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--accent-primary);
+  transform: translateY(-100%);
+  animation: hero-scroll-drip-fall 2s cubic-bezier(0.77, 0, 0.18, 1) infinite;
+}
+
+@keyframes hero-scroll-drip-fall {
+  0% {
+    transform: translateY(-100%);
+  }
+  55% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+/* ---- Timeline Experience: rel tunggal dengan isian scroll ---- */
+.xp-rail {
+  position: absolute;
+  top: 8px;
+  bottom: 40px;
+  left: 0;
+  width: 1px;
+  background: rgba(30, 41, 59, 0.9);
+}
+
+.xp-rail::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -0.5px;
+  width: 2px;
+  height: var(--rail-fill, 0%);
+  background: var(--accent-primary);
+  transition: height 0.2s linear;
+}
+
+.xp-item .xp-dot {
+  transition:
+    border-color 0.3s var(--ease-standard),
+    transform 0.3s var(--ease-standard);
+}
+
+.xp-item:hover .xp-dot {
+  border-color: rgba(110, 231, 183, 0.6);
+  transform: translateX(-50%) rotate(-4deg);
+}
+
+.xp-item .xp-content {
+  transition: transform 0.4s var(--ease-standard);
+}
+
+.xp-item:hover .xp-content {
+  transform: translateX(6px);
+}
+
+.xp-item .xp-role {
+  transition: color 0.3s;
+}
+
+.xp-item:hover .xp-role {
+  color: var(--accent-primary);
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(51, 65, 85, 0.9);
+  background: rgba(15, 23, 42, 0.7);
+  padding: 5px 12px;
+  font-family: var(--font-mono2), ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #cbd5e1;
+  transition:
+    border-color 0.3s,
+    color 0.3s;
+}
+
+.chip:hover {
+  border-color: rgba(110, 231, 183, 0.5);
+  color: #a7f3d0;
+}
+
+/* ---- Reveal saat scroll (pengganti ScrollReveal referensi) ---- */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.8s var(--ease-standard),
+    transform 0.8s var(--ease-standard);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.reveal.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+.reveal--slide-right {
+  transform: translateX(40px);
+}
+
+/* ---- Drop cap ala cetakan untuk paragraf pembuka About ---- */
+.drop-cap > p:first-child::first-letter {
+  font-family: var(--font-display), "Georgia", serif;
+  font-weight: 600;
+  font-size: 3.4em;
+  float: left;
+  line-height: 0.82;
+  padding: 0.08em 0.12em 0 0;
+  color: var(--accent-primary);
+}
+
+/* ---- Bingkai offset coretan tangan untuk portrait arch ---- */
+.arch-frame {
+  position: relative;
+}
+
+.arch-frame::before {
+  content: "";
+  position: absolute;
+  inset: -13px;
+  border: 1.5px solid rgba(110, 231, 183, 0.4);
+  border-radius: 46% 46% calc(1rem + 10px) calc(1rem + 10px);
+  transform: rotate(1.8deg);
+  pointer-events: none;
+  transition: transform 0.5s var(--ease-standard);
+}
+
+.arch-frame:hover::before {
+  transform: rotate(-0.8deg);
+}
+
+/* ---- Kartu highlight agak miring seperti kartu indeks ---- */
+.hl-tilt:nth-child(odd) {
+  transform: rotate(-0.7deg);
+}
+
+.hl-tilt:nth-child(even) {
+  transform: rotate(0.6deg) translateY(6px);
+}
+
+.hl-tilt:nth-child(odd):hover,
+.hl-tilt:nth-child(even):hover {
+  transform: rotate(0deg) translateY(-4px);
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .hero-fade,
+  .hero-roles-list,
+  .hero-pulse-dot,
+  .marquee__track,
+  .stamp-spin,
+  .doodle-draw,
+  .hero-scroll-drip::after {
+    opacity: 1 !important;
+    animation: none !important;
+    transform: none !important;
+    stroke-dashoffset: 0;
+  }
+  .hero-fade {
+    opacity: 1;
+  }
 }
