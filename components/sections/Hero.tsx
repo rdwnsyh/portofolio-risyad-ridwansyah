@@ -1,5 +1,7 @@
+"use client";
+
 import { ArrowDown, Download, Mail } from "lucide-react";
-import { profile } from "@/data/profile";
+import { useContent } from "@/lib/i18n";
 import { Badge } from "@/components/ui/badge";
 import { ButtonLink } from "@/components/ui/button";
 import { GithubIcon, LinkedinIcon } from "@/components/icons";
@@ -7,48 +9,54 @@ import { ArrowScribble, Spark, Squiggle, Stamp } from "@/components/shared/Doodl
 import { Magnet } from "@/components/shared/Magnet";
 import { Marquee } from "@/components/shared/Marquee";
 
-const socials = [
-  {
-    label: "GitHub Risyad Ridwansyah",
-    href: profile.github,
-    Icon: GithubIcon,
-  },
-  {
-    label: "LinkedIn Risyad Ridwansyah",
-    href: profile.linkedin,
-    Icon: LinkedinIcon,
-  },
-  {
-    label: "Email Risyad Ridwansyah",
-    href: `mailto:${profile.email}`,
-    Icon: Mail,
-  },
-] as const;
-
-// Item pertama diulang di akhir agar rotator CSS berputar mulus
-const rotatorRoles = [...profile.roles, profile.roles[0]];
-
 const personSchema = {
   "@context": "https://schema.org",
   "@type": "Person",
-  name: profile.name,
+  name: "Risyad Ridwansyah",
   jobTitle:
     "Web Developer, Quality Assurance, Backend Developer, Fullstack Developer",
-  email: `mailto:${profile.email}`,
-  url: profile.linkedin,
-  sameAs: [profile.github, profile.linkedin],
 } as const;
 
 export function Hero() {
+  const { hero, shared } = useContent();
+
+  const socials = [
+    {
+      label: hero.socialGithub,
+      href: shared.github,
+      Icon: GithubIcon,
+    },
+    {
+      label: hero.socialLinkedin,
+      href: shared.linkedin,
+      Icon: LinkedinIcon,
+    },
+    {
+      label: hero.socialEmail,
+      href: `mailto:${shared.email}`,
+      Icon: Mail,
+    },
+  ] as const;
+
+  // Item pertama diulang di akhir agar rotator CSS berputar mulus
+  const rotatorRoles = [...hero.roles, hero.roles[0]];
+
   return (
     <section
       id="top"
-      aria-labelledby="home-heading"
+      aria-label={hero.sectionAria}
       className="relative flex min-h-[100svh] flex-col justify-end overflow-clip"
     >
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            ...personSchema,
+            email: `mailto:${shared.email}`,
+            url: shared.linkedin,
+            sameAs: [shared.github, shared.linkedin],
+          }),
+        }}
       />
 
       {/* Orb aksen samar */}
@@ -67,7 +75,7 @@ export function Hero() {
             <span className="relative flex h-[7px] w-[7px]">
               <span className="hero-pulse-dot relative inline-flex h-[7px] w-[7px] rounded-full bg-emerald-400" />
             </span>
-            {profile.status}
+            {hero.status}
           </Badge>
 
           {/* Sapaan */}
@@ -76,7 +84,7 @@ export function Hero() {
             style={{ animationDelay: "0.15s" }}
           >
             <span aria-hidden="true">( </span>
-            {profile.greeting}
+            {hero.greeting}
             <span aria-hidden="true"> )</span>
           </p>
 
@@ -86,26 +94,21 @@ export function Hero() {
             className="font-display mb-7 text-[clamp(3.4rem,11vw,8rem)] leading-[0.98] font-semibold tracking-tight text-balance text-slate-50"
           >
             <span className="mb-[-0.22em] inline-block overflow-hidden pb-[0.22em] align-bottom">
-              <span
-                className="inline-block animate-[hero-rise_0.9s_cubic-bezier(0.16,1,0.3,1)_0.25s_both]"
-              >
-                {profile.firstName}
+              <span className="inline-block animate-[hero-rise_0.9s_cubic-bezier(0.16,1,0.3,1)_0.25s_both]">
+                {hero.firstName}
               </span>
             </span>{" "}
             <span className="mb-[-0.22em] inline-block overflow-hidden pb-[0.22em] align-bottom text-emerald-200 italic">
               <span className="relative inline-block animate-[hero-rise_0.9s_cubic-bezier(0.16,1,0.3,1)_0.4s_both]">
-                {profile.lastName}
+                {hero.lastName}
                 <Squiggle className="absolute bottom-[-0.06em] left-[2%] h-auto w-[96%] text-sky-300/90" />
               </span>
             </span>
           </h1>
 
           {/* Role rotator */}
-          <p
-            className="hero-fade mb-6"
-            style={{ animationDelay: "0.55s" }}
-          >
-            <span className="sr-only">{profile.roles.join(", ")}</span>
+          <p className="hero-fade mb-6" style={{ animationDelay: "0.55s" }}>
+            <span className="sr-only">{hero.roles.join(", ")}</span>
             <span
               aria-hidden="true"
               className="font-mono2 block h-[1.5em] overflow-hidden text-sm font-medium tracking-[0.06em] whitespace-nowrap text-slate-400 uppercase sm:text-base"
@@ -129,7 +132,7 @@ export function Hero() {
             className="hero-fade mb-10 max-w-xl text-base leading-relaxed text-pretty text-slate-300/90 sm:text-lg"
             style={{ animationDelay: "0.65s" }}
           >
-            {profile.tagline}
+            {hero.tagline}
           </p>
 
           {/* CTA magnetis */}
@@ -138,8 +141,8 @@ export function Hero() {
             style={{ animationDelay: "0.75s" }}
           >
             <Magnet>
-              <ButtonLink href={profile.projectsAnchor} size="lg">
-                Lihat Proyek
+              <ButtonLink href={shared.projectsAnchor} size="lg">
+                {hero.ctaProjects}
                 <ArrowDown
                   className="h-4 w-4 transition-transform duration-300 group-hover:translate-y-0.5"
                   aria-hidden="true"
@@ -148,20 +151,20 @@ export function Hero() {
             </Magnet>
             <Magnet>
               <ButtonLink
-                href={profile.cvPath}
-                download="CV-Risyad-Ridwansyah.pdf"
+                href={shared.cvPath}
+                download={hero.cvFileName}
                 variant="secondary"
                 size="lg"
               >
                 <Download className="h-4 w-4" aria-hidden="true" />
-                Unduh CV
+                {hero.ctaCV}
               </ButtonLink>
             </Magnet>
           </div>
 
           {/* Sosial */}
           <div
-            className="hero-fade mt-8 flex items-center gap-3"
+            className="hero-fade mt-8 flex flex-wrap items-center gap-3"
             style={{ animationDelay: "0.85s" }}
           >
             {socials.map(({ label, href, Icon }) => {
@@ -183,10 +186,10 @@ export function Hero() {
               );
             })}
             <a
-              href={`mailto:${profile.email}`}
-              className="ml-1 text-sm text-slate-500 underline-offset-4 transition-colors hover:text-emerald-300 hover:underline"
+              href={`mailto:${shared.email}`}
+              className="ml-1 text-sm break-all text-slate-500 underline-offset-4 transition-colors hover:text-emerald-300 hover:underline"
             >
-              {profile.email}
+              {shared.email}
             </a>
           </div>
         </div>
@@ -199,7 +202,7 @@ export function Hero() {
         >
           <Spark className="w-11 self-end text-emerald-300/80 max-lg:w-7" delay={1.5} />
           <Stamp
-            text={`${profile.status} ✳ `}
+            text={`${hero.status} ✳ `}
             id="hero-stamp"
             className="h-[138px] w-[138px] text-slate-400 max-lg:h-[84px] max-lg:w-[84px]"
           />
@@ -212,10 +215,7 @@ export function Hero() {
 
       {/* Marquee + scroll cue */}
       <div className="hero-fade relative" style={{ animationDelay: "1.1s" }}>
-        <Marquee
-          items={[...profile.roles, profile.status]}
-          duration={44}
-        />
+        <Marquee items={[...hero.roles, hero.status]} duration={44} />
         <div
           aria-hidden="true"
           className="absolute right-8 bottom-20 hidden flex-col items-center gap-2.5 lg:flex"

@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import {
   Award,
@@ -9,8 +11,7 @@ import {
   Mail,
 } from "lucide-react";
 import portrait from "@/public/images/portrait-risyad-ridwansyah.jpg";
-import { about } from "@/data/about";
-import { profile } from "@/data/profile";
+import { useContent } from "@/lib/i18n";
 import { ButtonLink } from "@/components/ui/button";
 import { Reveal } from "@/components/shared/Reveal";
 import { SectionHeader } from "@/components/shared/SectionHeader";
@@ -20,19 +21,21 @@ import { Magnet } from "@/components/shared/Magnet";
 const highlightIcons = [Briefcase, CheckCircle2, GraduationCap, Award] as const;
 
 export function About() {
+  const { about, hero, shared } = useContent();
+
   return (
     <section
       id="about"
-      aria-labelledby="about-heading"
+      aria-label={about.sectionAria}
       className="relative scroll-mt-20 border-t border-slate-900 bg-slate-950 py-24 text-slate-100 sm:py-28"
     >
       <div className="relative mx-auto w-full max-w-6xl px-6">
         <SectionHeader
-          slug="// about"
-          num="01"
-          label="Tentang Saya"
-          title="Tentang"
-          accent="Saya"
+          slug={about.slug}
+          num={about.num}
+          label={about.label}
+          title={about.title}
+          accent={about.accent}
         />
 
         <div className="mt-16 grid items-start gap-16 lg:grid-cols-[1fr_1.15fr] lg:gap-20">
@@ -47,7 +50,7 @@ export function About() {
               <div className="relative h-full w-full overflow-hidden rounded-t-full rounded-b-2xl border border-slate-800 bg-slate-900 shadow-[0_32px_80px_rgba(0,0,0,0.35)]">
                 <Image
                   src={portrait}
-                  alt="Foto Risyad Ridwansyah"
+                  alt={about.portraitAlt}
                   fill
                   sizes="(min-width: 1024px) 460px, (min-width: 640px) 460px, calc(100vw - 48px)"
                   className="object-cover object-top"
@@ -58,10 +61,10 @@ export function About() {
               <div className="absolute -bottom-6 left-5 z-[2] flex rotate-[1.2deg] items-center gap-3.5 rounded-xl border border-slate-800 bg-slate-900 px-4.5 py-3 shadow-xl shadow-black/40">
                 <div>
                   <b className="font-display block text-lg leading-tight font-medium text-slate-50 italic">
-                    {profile.name}
+                    {shared.name}
                   </b>
                   <span className="font-mono2 mt-0.5 block text-[11px] tracking-[0.1em] text-slate-500 uppercase">
-                    D3 Teknik Informatika
+                    {about.highlights[2].detail}
                   </span>
                 </div>
                 <small className="font-mono2 rounded-full border border-emerald-400/25 bg-emerald-400/10 px-2.5 py-1 text-[11px] font-semibold whitespace-nowrap text-emerald-300">
@@ -75,12 +78,11 @@ export function About() {
           <div className="flex flex-col gap-7">
             <Reveal as="h3" delay={0}>
               <span className="font-display block text-2xl leading-snug font-medium tracking-tight text-slate-50 sm:text-[1.7rem]">
-                Saya mengubah kebutuhan operasional menjadi{" "}
-                <em className="text-emerald-300">
-                  sistem yang stabil
-                </em>{" "}
-                dan{" "}
-                <em className="text-emerald-300">siap serah terima</em>.
+                {about.ledePre}
+                <em className="text-emerald-300">{about.ledeEm1}</em>
+                {about.ledeMid}
+                <em className="text-emerald-300">{about.ledeEm2}</em>
+                {about.ledePost}
               </span>
             </Reveal>
 
@@ -121,24 +123,36 @@ export function About() {
               <div className="mt-2 flex flex-wrap gap-3.5">
                 <Magnet>
                   <ButtonLink
-                    href={profile.cvPath}
-                    download="CV-Risyad-Ridwansyah.pdf"
+                    href={shared.cvPath}
+                    download={hero.cvFileName}
                     size="lg"
                   >
                     <Download className="h-[18px] w-[18px]" aria-hidden="true" />
-                    <span>Unduh CV</span>
+                    <span>{about.ctaCV}</span>
                   </ButtonLink>
                 </Magnet>
                 <Magnet>
                   <ButtonLink
-                    href={`mailto:${profile.email}`}
+                    href={`mailto:${shared.email}`}
                     variant="secondary"
                     size="lg"
                   >
                     <Mail className="h-[18px] w-[18px]" aria-hidden="true" />
-                    <span>Hubungi Saya</span>
+                    <span>{about.ctaContact}</span>
                   </ButtonLink>
                 </Magnet>
+              </div>
+            </Reveal>
+
+            {/* Penegas fokus */}
+            <Reveal delay={440}>
+              <div className="rounded-xl border border-emerald-400/20 bg-gradient-to-br from-emerald-400/10 via-slate-900/60 to-slate-900/60 p-5.5">
+                <p className="text-sm leading-relaxed text-slate-300">
+                  <span className="font-semibold text-emerald-200">
+                    {about.focusPre}
+                  </span>{" "}
+                  {about.focusText}
+                </p>
               </div>
             </Reveal>
           </div>
@@ -149,13 +163,13 @@ export function About() {
           <Magnet>
             <ButtonLink href="#experience" size="lg">
               <Briefcase className="h-[18px] w-[18px]" aria-hidden="true" />
-              <span>Lihat Pengalaman</span>
+              <span>{about.pageExperience}</span>
             </ButtonLink>
           </Magnet>
           <Magnet>
             <ButtonLink href="#projects" variant="secondary" size="lg">
               <FolderOpen className="h-[18px] w-[18px]" aria-hidden="true" />
-              <span>Lihat Proyek</span>
+              <span>{about.pageProjects}</span>
             </ButtonLink>
           </Magnet>
         </Reveal>

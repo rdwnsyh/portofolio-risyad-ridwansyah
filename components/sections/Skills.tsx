@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Code2,
   Database,
@@ -6,8 +8,7 @@ import {
   Mail,
   ShieldCheck,
 } from "lucide-react";
-import { skills } from "@/data/skills";
-import { profile } from "@/data/profile";
+import { useContent } from "@/lib/i18n";
 import { ButtonLink } from "@/components/ui/button";
 import { Magnet } from "@/components/shared/Magnet";
 import { Marquee } from "@/components/shared/Marquee";
@@ -21,26 +22,28 @@ const categoryIcons = {
   shield: ShieldCheck,
 } as const;
 
-const marqueeItems = skills.categories.flatMap((c) =>
-  c.items.map((s) => s.name),
-);
-
 export function Skills() {
+  const { skills: t, shared } = useContent();
+
+  const marqueeItems = t.categories.flatMap((c) =>
+    c.items.map((s) => s.name),
+  );
+
   return (
     <section
       id="skills"
-      aria-labelledby="skills-heading"
+      aria-label={`${t.title} ${t.accent}`}
       className="relative scroll-mt-20 border-t border-slate-900 bg-slate-950 py-24 text-slate-100 sm:py-28"
     >
       <div className="relative mx-auto w-full max-w-6xl px-6">
         <SectionHeader
-          slug={skills.slug}
-          num={skills.num}
-          label={skills.label}
-          title={skills.title}
-          accent={skills.accent}
+          slug={t.slug}
+          num={t.num}
+          label={t.label}
+          title={t.title}
+          accent={t.accent}
           align="center"
-          sub={skills.tagline}
+          sub={t.tagline}
         />
       </div>
 
@@ -50,8 +53,8 @@ export function Skills() {
 
       <div className="relative mx-auto w-full max-w-6xl px-6">
         <div className="mt-12 grid gap-5 md:grid-cols-2">
-          {skills.categories.map((cat, i) => {
-            const Icon = categoryIcons[cat.icon];
+          {t.categories.map((cat, i) => {
+            const Icon = categoryIcons[cat.icon as keyof typeof categoryIcons];
             return (
               <Reveal
                 key={cat.key}
@@ -106,15 +109,15 @@ export function Skills() {
         {/* Navigasi antar halaman */}
         <Reveal className="mt-20 flex flex-wrap justify-center gap-3.5">
           <Magnet>
-            <ButtonLink href={`mailto:${profile.email}`} size="lg">
+            <ButtonLink href={`mailto:${shared.email}`} size="lg">
               <Mail className="h-[18px] w-[18px]" aria-hidden="true" />
-              <span>Hubungi Saya</span>
+              <span>{t.pageContact}</span>
             </ButtonLink>
           </Magnet>
           <Magnet>
             <ButtonLink href="#projects" variant="secondary" size="lg">
               <FolderOpen className="h-[18px] w-[18px]" aria-hidden="true" />
-              <span>Lihat Proyek</span>
+              <span>{t.pageProjects}</span>
             </ButtonLink>
           </Magnet>
         </Reveal>

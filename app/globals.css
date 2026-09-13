@@ -10,6 +10,68 @@
   --max-width: 76rem;
   --radius-pill: 999px;
   --ease-standard: cubic-bezier(0.22, 1, 0.36, 1);
+  color-scheme: dark;
+}
+
+/* ---- Mode terang: petakan ulang palet slate, emerald, sky ----
+   Tailwind v4 merender warna via var color, jadi seluruh
+   class warna di situs otomatis ikut terang. */
+.light {
+  --background: #f6f8fb;
+  --foreground: #0f172a;
+  --accent-primary: #059669; /* emerald-600 */
+  --accent-secondary: #0284c7; /* sky-600 */
+  --status-ok: #059669;
+  color-scheme: light;
+
+  --color-slate-50: #0f172a;
+  --color-slate-100: #0f172a;
+  --color-slate-200: #1e293b;
+  --color-slate-300: #334155;
+  --color-slate-400: #475569;
+  --color-slate-500: #64748b;
+  --color-slate-600: #64748b;
+  --color-slate-700: #cbd5e1;
+  --color-slate-800: #e2e8f0;
+  --color-slate-900: #ffffff;
+  --color-slate-950: #f6f8fb;
+  --color-white: #0f172a;
+  --color-emerald-200: #047857;
+  --color-emerald-300: #059669;
+  --color-emerald-400: #059669;
+  --color-sky-300: #0284c7;
+}
+
+/* Komponen ber-warna hardcode perlu penyesuaian terang */
+.light .chip {
+  border-color: #e2e8f0;
+  background: #f1f5f9;
+  color: #334155;
+}
+
+.light .chip:hover {
+  border-color: rgba(5, 150, 105, 0.5);
+  color: #047857;
+}
+
+.light .marquee {
+  background: rgba(241, 245, 249, 0.75);
+}
+
+.light ::selection {
+  background: rgba(5, 150, 105, 0.22);
+  color: #022c22;
+}
+
+.light :focus-visible {
+  outline-color: rgba(5, 150, 105, 0.7);
+}
+
+/* Transisi ganti tema yang halus (hanya body agar tak mengganggu animasi) */
+body {
+  transition:
+    background-color 0.3s,
+    color 0.3s;
 }
 
 @theme inline {

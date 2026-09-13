@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 
 type RevealProps = {
   children: ReactNode;
-  as?: "div" | "h3" | "article";
+  as?: "div" | "h3" | "article" | "aside";
   className?: string;
   style?: CSSProperties;
   /** Jeda animasi dalam ms (seperti --reveal-delay di referensi) */

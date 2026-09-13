@@ -2,10 +2,13 @@
 
 import { useEffect, useState } from "react";
 import { Download, Menu, X } from "lucide-react";
-import { navLinks, profile } from "@/data/profile";
+import { useContent } from "@/lib/i18n";
+import { LanguageToggle } from "@/components/shared/LanguageToggle";
+import { ThemeToggle } from "@/components/shared/ThemeToggle";
 import { cn } from "@/lib/utils";
 
 export function Navbar() {
+  const { nav, hero, shared } = useContent();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -26,13 +29,13 @@ export function Navbar() {
       )}
     >
       <nav
-        aria-label="Navigasi utama"
-        className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-6"
+        aria-label="Main navigation"
+        className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between gap-3 px-6"
       >
         {/* Monogram */}
         <a
           href="#top"
-          aria-label="Risyad Ridwansyah — kembali ke atas"
+          aria-label={nav.homeAria}
           className="font-display text-xl font-semibold tracking-tight text-white italic"
         >
           RR<span className="text-emerald-300">.</span>
@@ -40,7 +43,7 @@ export function Navbar() {
 
         {/* Link desktop */}
         <ul className="hidden items-center gap-7 md:flex">
-          {navLinks.map(({ label, href }) => (
+          {nav.links.map(({ label, href }) => (
             <li key={label}>
               <a
                 href={href}
@@ -52,10 +55,12 @@ export function Navbar() {
           ))}
         </ul>
 
-        <div className="hidden md:block">
+        <div className="hidden items-center gap-3 md:flex">
+          <ThemeToggle />
+          <LanguageToggle />
           <a
-            href={profile.cvPath}
-            download="CV-Risyad-Ridwansyah.pdf"
+            href={shared.cvPath}
+            download={hero.cvFileName}
             className="font-mono2 inline-flex h-10 items-center gap-2 rounded-full border border-slate-700 px-5 text-[13px] tracking-[0.1em] text-slate-200 uppercase transition-all hover:-translate-y-0.5 hover:border-emerald-300/60 hover:text-emerald-200"
           >
             <Download className="h-4 w-4" aria-hidden="true" />
@@ -63,27 +68,31 @@ export function Navbar() {
           </a>
         </div>
 
-        {/* Tombol menu mobile */}
-        <button
-          type="button"
-          onClick={() => setOpen((v) => !v)}
-          aria-expanded={open}
-          aria-label={open ? "Tutup menu navigasi" : "Buka menu navigasi"}
-          className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-800 text-slate-200 md:hidden"
-        >
-          {open ? (
-            <X className="h-5 w-5" aria-hidden="true" />
-          ) : (
-            <Menu className="h-5 w-5" aria-hidden="true" />
-          )}
-        </button>
+        {/* Kontrol mobile */}
+        <div className="flex items-center gap-2 md:hidden">
+          <ThemeToggle />
+          <LanguageToggle />
+          <button
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            aria-expanded={open}
+            aria-label={open ? nav.menuClose : nav.menuOpen}
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-800 text-slate-200"
+          >
+            {open ? (
+              <X className="h-5 w-5" aria-hidden="true" />
+            ) : (
+              <Menu className="h-5 w-5" aria-hidden="true" />
+            )}
+          </button>
+        </div>
       </nav>
 
       {/* Panel mobile */}
       {open && (
         <div className="border-t border-slate-800/80 bg-slate-950/95 backdrop-blur-md md:hidden">
           <ul className="mx-auto w-full max-w-6xl space-y-1 px-6 py-4">
-            {navLinks.map(({ label, href }) => (
+            {nav.links.map(({ label, href }) => (
               <li key={label}>
                 <a
                   href={href}
@@ -96,12 +105,12 @@ export function Navbar() {
             ))}
             <li className="pt-2 pb-1">
               <a
-                href={profile.cvPath}
-                download="CV-Risyad-Ridwansyah.pdf"
+                href={shared.cvPath}
+                download={hero.cvFileName}
                 className="inline-flex h-11 items-center gap-2 rounded-full bg-white px-6 text-sm font-semibold text-slate-950"
               >
                 <Download className="h-4 w-4" aria-hidden="true" />
-                Unduh CV
+                {hero.ctaCV}
               </a>
             </li>
           </ul>

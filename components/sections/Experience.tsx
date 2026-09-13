@@ -2,14 +2,14 @@
 
 import { useEffect, useRef } from "react";
 import { FolderOpen, Mail } from "lucide-react";
-import { experience } from "@/data/experience";
-import { profile } from "@/data/profile";
+import { useContent } from "@/lib/i18n";
 import { ButtonLink } from "@/components/ui/button";
 import { Magnet } from "@/components/shared/Magnet";
 import { Reveal } from "@/components/shared/Reveal";
 import { SectionHeader } from "@/components/shared/SectionHeader";
 
 export function Experience() {
+  const { experience, shared } = useContent();
   const railRef = useRef<HTMLDivElement>(null);
 
   // Garis rel terisi mengikuti posisi scroll (seperti referensi)
@@ -35,7 +35,7 @@ export function Experience() {
   return (
     <section
       id="experience"
-      aria-labelledby="experience-heading"
+      aria-label={`${experience.title} ${experience.accent}`}
       className="relative scroll-mt-20 border-t border-slate-900 bg-slate-950 py-24 text-slate-100 sm:py-28"
     >
       <div className="relative mx-auto w-full max-w-6xl px-6">
@@ -120,17 +120,17 @@ export function Experience() {
           <Magnet>
             <ButtonLink href="#projects" size="lg">
               <FolderOpen className="h-[18px] w-[18px]" aria-hidden="true" />
-              <span>Lihat Proyek</span>
+              <span>{experience.pageProjects}</span>
             </ButtonLink>
           </Magnet>
           <Magnet>
             <ButtonLink
-              href={`mailto:${profile.email}`}
+              href={`mailto:${shared.email}`}
               variant="secondary"
               size="lg"
             >
               <Mail className="h-[18px] w-[18px]" aria-hidden="true" />
-              <span>Ajak Kerja Sama</span>
+              <span>{experience.pageContact}</span>
             </ButtonLink>
           </Magnet>
         </Reveal>

@@ -1,6 +1,6 @@
 "use client";
 
-import { heroStats } from "@/data/profile";
+import { useContent } from "@/lib/i18n";
 import { useCountUp } from "@/hooks/useCountUp";
 
 function StatCell({
@@ -29,13 +29,15 @@ function StatCell({
 }
 
 export function StatsStrip() {
+  const { stats } = useContent();
+
   return (
     <section
-      aria-label="Statistik utama"
+      aria-label={stats.sectionAria}
       className="relative border-y border-slate-800/80 bg-slate-900/40"
     >
       <div className="mx-auto grid w-full max-w-6xl grid-cols-2 gap-px bg-slate-800/80 lg:grid-cols-4">
-        {heroStats.map((s) => (
+        {stats.items.map((s) => (
           <div key={s.label} className="bg-slate-950">
             <StatCell {...s} />
           </div>
