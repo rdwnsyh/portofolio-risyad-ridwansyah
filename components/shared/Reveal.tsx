@@ -5,12 +5,12 @@ import { cn } from "@/lib/utils";
 
 type RevealProps = {
   children: ReactNode;
-  as?: "div" | "h3";
+  as?: "div" | "h3" | "article";
   className?: string;
   style?: CSSProperties;
   /** Jeda animasi dalam ms (seperti --reveal-delay di referensi) */
   delay?: number;
-  variant?: "fade-up" | "slide-right";
+  variant?: "fade-up" | "slide-right" | "scale";
 };
 
 // Reveal saat scroll (pengganti ringan ScrollReveal framer-motion di referensi)
@@ -51,6 +51,7 @@ export function Reveal({
       className={cn(
         "reveal",
         variant === "slide-right" && "reveal--slide-right",
+        variant === "scale" && "reveal--scale",
         className,
       )}
       style={{ "--reveal-delay": `${delay}ms`, ...style } as CSSProperties}

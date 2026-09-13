@@ -6,6 +6,7 @@ type MarqueeProps = {
   separator?: string;
   duration?: number;
   className?: string;
+  reverse?: boolean;
 };
 
 // Ticker tanpa henti: item genap serif italic, ganjil mono (seperti set type)
@@ -14,6 +15,7 @@ export function Marquee({
   separator = "✳",
   duration = 36,
   className,
+  reverse = false,
 }: MarqueeProps) {
   const row = (hidden: boolean) => (
     <div className="flex shrink-0 items-center" aria-hidden={hidden || undefined}>
@@ -41,7 +43,12 @@ export function Marquee({
     <div className={cn("marquee", className)}>
       <div
         className="marquee__track items-center py-4"
-        style={{ "--marquee-duration": `${duration}s` } as React.CSSProperties}
+        style={
+          {
+            "--marquee-duration": `${duration}s`,
+            animationDirection: reverse ? "reverse" : undefined,
+          } as React.CSSProperties
+        }
       >
         {row(false)}
         {row(true)}

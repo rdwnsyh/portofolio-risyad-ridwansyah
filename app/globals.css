@@ -282,6 +282,10 @@ body {
   transform: translateX(40px);
 }
 
+.reveal--scale {
+  transform: translateY(16px) scale(0.96);
+}
+
 /* ---- Drop cap ala cetakan untuk paragraf pembuka About ---- */
 .drop-cap > p:first-child::first-letter {
   font-family: var(--font-display), "Georgia", serif;
