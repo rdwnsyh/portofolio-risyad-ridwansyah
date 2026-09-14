@@ -43,9 +43,14 @@ export const idContent = {
     sectionAria: "Statistik utama",
     items: [
       { value: 3, suffix: "+", decimals: 0, label: "Magang Industri" },
-      { value: 102, suffix: "", decimals: 0, label: "Bug Ditangani (SQA)" },
-      { value: 84, suffix: "%", decimals: 0, label: "Resolusi Bug" },
-      { value: 3.78, suffix: "", decimals: 2, label: "IPK D3 Informatika" },
+      { value: 2, suffix: "", decimals: 0, label: "Proyek & Pengabdian" },
+      { value: 9, suffix: "", decimals: 0, label: "Kumpulan Teknologi" },
+      {
+        value: 6,
+        suffix: "+",
+        decimals: 0,
+        label: "Total Project Yang Telah Diselesaikan",
+      },
     ],
   },
   about: {
@@ -72,14 +77,14 @@ export const idContent = {
         detail: "Fullstack, SQA, Web Developer",
       },
       {
-        value: "84%",
-        label: "Bug Resolution Rate",
-        detail: "102 bug dikawal hingga siap serah terima",
+        value: "9",
+        label: "Kumpulan Teknologi",
+        detail: "Web, QA, dan backend",
       },
       {
-        value: "3.78",
-        label: "IPK / 4.00",
-        detail: "D3 Teknik Informatika",
+        value: "6+",
+        label: "Total Project",
+        detail: "Web, QA, dan backend",
       },
       {
         value: "2",
@@ -220,7 +225,8 @@ export const idContent = {
       {
         title: "Cakrawala Muda Indonesia",
         year: "2025",
-        short: "Web informasi kompetisi mahasiswa — landing page dan katalog lomba.",
+        short:
+          "Web informasi kompetisi mahasiswa — landing page dan katalog lomba.",
         description:
           "Website informasi kompetisi mahasiswa: landing page publik plus pengelolaan konten informasi lomba agar mudah ditemukan dan diikuti.",
         role: "Web Developer",
@@ -349,7 +355,8 @@ export const idContent = {
     formMessage: "Pesan",
     formMessagePlaceholder: "Ceritakan proyek atau peran yang ditawarkan…",
     formSubmit: "Kirim Pesan",
-    formNote: "Tanpa backend — tombol ini membuka aplikasi email dengan pesanmu sudah terisi rapi.",
+    formNote:
+      "Tanpa backend — tombol ini membuka aplikasi email dengan pesanmu sudah terisi rapi.",
     mailSubject: "Pesan portofolio dari",
     successTitle: "Pesan siap dikirim!",
     successTextPre:

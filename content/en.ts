@@ -44,9 +44,9 @@ export const enContent: SiteContent = {
     sectionAria: "Key statistics",
     items: [
       { value: 3, suffix: "+", decimals: 0, label: "Industry Internships" },
-      { value: 102, suffix: "", decimals: 0, label: "Bugs Handled (SQA)" },
-      { value: 84, suffix: "%", decimals: 0, label: "Bug Resolution" },
-      { value: 3.78, suffix: "", decimals: 2, label: "GPA in Informatics" },
+      { value: 2, suffix: "", decimals: 0, label: "Projects & Service" },
+      { value: 9, suffix: "", decimals: 0, label: "Technology Stack" },
+      { value: 6, suffix: "+", decimals: 0, label: "Projects Delivered" },
     ],
   },
   about: {
@@ -73,14 +73,14 @@ export const enContent: SiteContent = {
         detail: "Fullstack, SQA, Web Developer",
       },
       {
-        value: "84%",
-        label: "Bug Resolution Rate",
-        detail: "102 bugs shepherded to handover readiness",
+        value: "9",
+        label: "Technology Stack",
+        detail: "Web, QA, and backend",
       },
       {
-        value: "3.78",
-        label: "GPA / 4.00",
-        detail: "D3 Informatics Engineering",
+        value: "6+",
+        label: "Total Projects",
+        detail: "Web, QA, and backend",
       },
       {
         value: "2",
@@ -221,7 +221,8 @@ export const enContent: SiteContent = {
       {
         title: "Cakrawala Muda Indonesia",
         year: "2025",
-        short: "Student competition information portal — landing page and event catalog.",
+        short:
+          "Student competition information portal — landing page and event catalog.",
         description:
           "Student competition information website: a public landing page plus managed competition content so events are easy to discover and join.",
         role: "Web Developer",
@@ -234,7 +235,8 @@ export const enContent: SiteContent = {
       {
         title: "Berkah Expedisi",
         year: "2025",
-        short: "Company profile and information system for an expedition service.",
+        short:
+          "Company profile and information system for an expedition service.",
         description:
           "Company profile and information system for Berkah Expedisi: service profile, operational information, and company content management.",
         role: "Web Developer",
@@ -266,8 +268,7 @@ export const enContent: SiteContent = {
     label: "Skills",
     title: "Technical",
     accent: "Skills",
-    tagline:
-      "The tools I use to build, integrate, and test software.",
+    tagline: "The tools I use to build, integrate, and test software.",
     pageContact: "Contact Me",
     pageProjects: "View Projects",
     categories: [
@@ -350,7 +351,8 @@ export const enContent: SiteContent = {
     formMessage: "Message",
     formMessagePlaceholder: "Tell me about the project or role…",
     formSubmit: "Send Message",
-    formNote: "No backend — this button opens your email app with the message pre-filled.",
+    formNote:
+      "No backend — this button opens your email app with the message pre-filled.",
     mailSubject: "Portfolio message from",
     successTitle: "Message ready to send!",
     successTextPre:
