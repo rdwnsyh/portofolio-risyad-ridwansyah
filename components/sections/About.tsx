@@ -27,9 +27,9 @@ export function About() {
     <section
       id="about"
       aria-label={about.sectionAria}
-      className="relative scroll-mt-20 border-t border-slate-900 bg-slate-950 py-24 text-slate-100 sm:py-28"
+      className="relative scroll-mt-20 border-t border-slate-900 bg-slate-950 py-16 sm:py-24 md:py-28 text-slate-100"
     >
-      <div className="relative mx-auto w-full max-w-6xl px-6">
+      <div className="relative mx-auto w-full max-w-6xl px-4 sm:px-6">
         <SectionHeader
           slug={about.slug}
           num={about.num}
@@ -38,12 +38,12 @@ export function About() {
           accent={about.accent}
         />
 
-        <div className="mt-16 grid items-start gap-16 lg:grid-cols-[1fr_1.15fr] lg:gap-20">
+        <div className="mt-12 sm:mt-16 grid items-start gap-12 sm:gap-16 lg:grid-cols-[1fr_1.15fr] lg:gap-20">
           {/* Portrait arch (sticky di desktop) */}
-          <Reveal className="mx-auto w-full max-w-[460px] lg:sticky lg:top-32">
+          <Reveal className="mx-auto w-full max-w-[420px] lg:max-w-[460px] lg:sticky lg:top-32">
             <div className="arch-frame aspect-[4/5] rotate-[-1.6deg] transition-transform duration-500 hover:rotate-0">
               <Spark
-                className="absolute -top-8 -right-6 z-[2] w-[52px] text-emerald-300/90"
+                className="absolute -top-7 -right-5 sm:-top-8 sm:-right-6 z-[2] w-10 sm:w-[52px] text-emerald-300/90"
                 delay={0.7}
               />
               {/* Foto portrait */}
@@ -52,22 +52,22 @@ export function About() {
                   src={portrait}
                   alt={about.portraitAlt}
                   fill
-                  sizes="(min-width: 1024px) 460px, (min-width: 640px) 460px, calc(100vw - 48px)"
+                  sizes="(min-width: 1024px) 460px, (min-width: 640px) 420px, calc(100vw - 32px)"
                   className="object-cover object-top"
                   placeholder="blur"
                 />
               </div>
               {/* Pelat keterangan ala galeri */}
-              <div className="absolute -bottom-6 left-5 z-[2] flex rotate-[1.2deg] items-center gap-3.5 rounded-xl border border-slate-800 bg-slate-900 px-4.5 py-3 shadow-xl shadow-black/40">
-                <div>
-                  <b className="font-display block text-lg leading-tight font-medium text-slate-50 italic">
+              <div className="absolute -bottom-6 left-2 sm:left-5 z-[2] flex max-w-[calc(100%-1rem)] sm:max-w-none rotate-[1.2deg] items-center gap-2.5 sm:gap-3.5 rounded-xl border border-slate-800 bg-slate-900 px-3 sm:px-4.5 py-2 sm:py-3 shadow-xl shadow-black/40">
+                <div className="min-w-0">
+                  <b className="font-display block truncate text-base sm:text-lg leading-tight font-medium text-slate-50 italic">
                     {shared.name}
                   </b>
-                  <span className="font-mono2 mt-0.5 block text-[11px] tracking-[0.1em] text-slate-500 uppercase">
+                  <span className="font-mono2 mt-0.5 block truncate text-[10px] sm:text-[11px] tracking-[0.1em] text-slate-500 uppercase">
                     {about.highlights[2].detail}
                   </span>
                 </div>
-                <small className="font-mono2 rounded-full border border-emerald-400/25 bg-emerald-400/10 px-2.5 py-1 text-[11px] font-semibold whitespace-nowrap text-emerald-300">
+                <small className="font-mono2 shrink-0 rounded-full border border-emerald-400/25 bg-emerald-400/10 px-2 sm:px-2.5 py-0.5 sm:py-1 text-[10px] sm:text-[11px] font-semibold whitespace-nowrap text-emerald-300">
                   ● Available
                 </small>
               </div>
@@ -120,22 +120,24 @@ export function About() {
             </Reveal>
 
             <Reveal delay={380}>
-              <div className="mt-2 flex flex-wrap gap-3.5">
-                <Magnet>
+              <div className="mt-2 flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-3.5 w-full sm:w-auto">
+                <Magnet className="w-full sm:w-auto">
                   <ButtonLink
                     href={shared.cvPath}
                     download={hero.cvFileName}
                     size="lg"
+                    className="w-full sm:w-auto justify-center"
                   >
                     <Download className="h-[18px] w-[18px]" aria-hidden="true" />
                     <span>{about.ctaCV}</span>
                   </ButtonLink>
                 </Magnet>
-                <Magnet>
+                <Magnet className="w-full sm:w-auto">
                   <ButtonLink
                     href={`mailto:${shared.email}`}
                     variant="secondary"
                     size="lg"
+                    className="w-full sm:w-auto justify-center"
                   >
                     <Mail className="h-[18px] w-[18px]" aria-hidden="true" />
                     <span>{about.ctaContact}</span>
@@ -146,8 +148,8 @@ export function About() {
 
             {/* Penegas fokus */}
             <Reveal delay={440}>
-              <div className="rounded-xl border border-emerald-400/20 bg-gradient-to-br from-emerald-400/10 via-slate-900/60 to-slate-900/60 p-5.5">
-                <p className="text-sm leading-relaxed text-slate-300">
+              <div className="rounded-xl border border-emerald-400/20 bg-gradient-to-br from-emerald-400/10 via-slate-900/60 to-slate-900/60 p-4.5 sm:p-5.5">
+                <p className="text-xs sm:text-sm leading-relaxed text-slate-300">
                   <span className="font-semibold text-emerald-200">
                     {about.focusPre}
                   </span>{" "}
@@ -159,7 +161,7 @@ export function About() {
         </div>
 
         {/* Navigasi antar halaman */}
-        <Reveal className="mt-20 flex flex-wrap gap-3.5">
+        <Reveal className="mt-14 sm:mt-20 flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-3.5 [&>div]:w-full sm:[&>div]:w-auto [&_a]:w-full sm:[&_a]:w-auto [&_a]:justify-center">
           <Magnet>
             <ButtonLink href="#experience" size="lg">
               <Briefcase className="h-[18px] w-[18px]" aria-hidden="true" />

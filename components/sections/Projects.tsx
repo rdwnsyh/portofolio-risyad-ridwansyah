@@ -164,7 +164,7 @@ function ProjectModal({
 
   return (
     <div
-      className="fixed inset-0 z-[60] flex items-end justify-center p-4 sm:items-center"
+      className="fixed inset-0 z-[60] flex items-end justify-center p-3 sm:p-4 sm:items-center"
       role="dialog"
       aria-modal="true"
       aria-label={`${t.modalClose} — ${item.title}`}
@@ -175,9 +175,9 @@ function ProjectModal({
         onClick={onClose}
         className="absolute inset-0 cursor-default bg-black/70 backdrop-blur-sm"
       />
-      <div className="relative max-h-[85vh] w-full max-w-2xl overflow-y-auto rounded-2xl border border-slate-700 bg-slate-900 shadow-2xl shadow-black/60">
+      <div className="relative max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-2xl border border-slate-700 bg-slate-900 shadow-2xl shadow-black/60">
         <ProjectVisual item={item} inModal />
-        <div className="p-6 sm:p-8">
+        <div className="p-5 sm:p-8">
           <p className="flex items-center justify-between gap-4">
             <span aria-hidden="true" className="font-mono2 text-xs text-slate-500">
               {`№${String(index + 1).padStart(2, "0")}`}
@@ -186,18 +186,18 @@ function ProjectModal({
               {item.year}
             </span>
           </p>
-          <h3 className="font-display mt-2 text-2xl font-semibold tracking-tight text-balance text-slate-50 sm:text-3xl">
+          <h3 className="font-display mt-2 text-xl sm:text-2xl md:text-3xl font-semibold tracking-tight text-balance text-slate-50">
             {item.title}
           </h3>
-          <p className="font-mono2 mt-3 text-xs tracking-[0.14em] text-slate-400 uppercase">
+          <p className="font-mono2 mt-2 sm:mt-3 text-xs tracking-[0.14em] text-slate-400 uppercase">
             {t.modalRole}: <span className="text-emerald-300">{item.role}</span>
           </p>
-          <p className="mt-4 text-[15px] leading-relaxed text-slate-300/90">
+          <p className="mt-3.5 sm:mt-4 text-sm sm:text-[15px] leading-relaxed text-slate-300/90">
             {item.description}
           </p>
-          <div className="mt-5 flex flex-wrap gap-1.5">
+          <div className="mt-4 sm:mt-5 flex flex-wrap gap-1.5">
             {item.tech.map((t) => (
-              <span key={t} className="chip">
+              <span key={t} className="chip text-[10px] sm:text-[11px]">
                 {t}
               </span>
             ))}
@@ -210,7 +210,7 @@ function ProjectModal({
                     href={r.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-mono2 inline-flex items-center gap-1.5 text-[13px] text-slate-400 underline-offset-4 transition-colors hover:text-emerald-300 hover:underline"
+                    className="font-mono2 inline-flex items-center gap-1.5 text-[12px] sm:text-[13px] text-slate-400 underline-offset-4 transition-colors hover:text-emerald-300 hover:underline"
                   >
                     {r.label}
                     <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
@@ -219,7 +219,7 @@ function ProjectModal({
               ))}
             </ul>
           ) : null}
-          <div className="mt-7 flex flex-wrap gap-3">
+          <div className="mt-6 sm:mt-7 flex flex-col sm:flex-row flex-wrap gap-2.5 sm:gap-3 [&>a]:w-full sm:[&>a]:w-auto [&>a]:justify-center">
             {item.demo ? (
               <ButtonLink
                 href={item.demo}
@@ -246,9 +246,9 @@ function ProjectModal({
           type="button"
           onClick={onClose}
           aria-label="Tutup"
-          className="absolute top-4 right-4 flex h-10 w-10 items-center justify-center rounded-full border border-slate-700 bg-slate-950/80 text-slate-300 transition-colors hover:border-slate-500 hover:text-white"
+          className="absolute top-3 right-3 sm:top-4 sm:right-4 z-20 flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-full border border-slate-700 bg-slate-950/90 text-slate-300 backdrop-blur transition-colors hover:border-slate-500 hover:text-white"
         >
-          <X className="h-5 w-5" aria-hidden="true" />
+          <X className="h-4 w-4 sm:h-5 sm:w-5" aria-hidden="true" />
         </button>
       </div>
     </div>
@@ -264,9 +264,9 @@ export function Projects() {
     <section
       id="projects"
       aria-labelledby="projects-heading"
-      className="relative scroll-mt-20 border-t border-slate-900 bg-slate-950 py-24 text-slate-100 sm:py-28"
+      className="relative scroll-mt-20 border-t border-slate-900 bg-slate-950 py-16 sm:py-24 md:py-28 text-slate-100"
     >
-      <div className="relative mx-auto w-full max-w-6xl px-6">
+      <div className="relative mx-auto w-full max-w-6xl px-4 sm:px-6">
         <SectionHeader
           slug={t.slug}
           num={t.num}
@@ -278,7 +278,7 @@ export function Projects() {
         />
 
         {/* Bento grid */}
-        <div className="mt-14 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 [&>*:nth-child(3n+2)]:rotate-[0.4deg] [&>*:nth-child(3n)]:rotate-[-0.4deg]">
+        <div className="mt-12 sm:mt-14 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 [&>*:nth-child(3n+2)]:rotate-[0.4deg] [&>*:nth-child(3n)]:rotate-[-0.4deg]">
           {t.items.map((item, i) => {
             const featured = i === 0 || i === 3;
             const snippet =
@@ -298,33 +298,33 @@ export function Projects() {
                   className="group flex h-full w-full flex-col overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/60 text-left backdrop-blur transition-all duration-300 hover:-translate-y-1.5 hover:rotate-0 hover:border-emerald-300/40 hover:shadow-xl hover:shadow-black/50"
                 >
                   <ProjectVisual item={item} large={featured} />
-                  <span className="flex flex-1 flex-col gap-3 p-5 sm:p-6">
+                  <span className="flex flex-1 flex-col gap-2.5 sm:gap-3 p-4 sm:p-6">
                     <span className="flex items-start justify-between gap-3">
-                      <span className="font-display text-xl leading-snug font-semibold tracking-tight text-slate-50">
+                      <span className="font-display text-lg sm:text-xl leading-snug font-semibold tracking-tight text-slate-50">
                         <span
                           aria-hidden="true"
-                          className="font-mono2 mr-2.5 text-xs font-medium text-slate-500"
+                          className="font-mono2 mr-2 text-xs font-medium text-slate-500"
                         >
                           {`№${String(i + 1).padStart(2, "0")}`}
                         </span>
                         {item.title}
                       </span>
-                      <span className="font-display shrink-0 text-sm text-emerald-300 italic">
+                      <span className="font-display shrink-0 text-xs sm:text-sm text-emerald-300 italic">
                         {item.year}
                       </span>
                     </span>
-                    <span className="line-clamp-3 text-sm leading-relaxed text-slate-400">
+                    <span className="line-clamp-3 text-xs sm:text-sm leading-relaxed text-slate-400">
                       {snippet}
                     </span>
-                    <span className="mt-auto flex items-end justify-between gap-3 border-t border-slate-800/80 pt-3.5">
+                    <span className="mt-auto flex items-end justify-between gap-3 border-t border-slate-800/80 pt-3 sm:pt-3.5">
                       <span className="flex flex-wrap gap-1.5">
                         {item.tech.slice(0, 4).map((t) => (
-                          <span key={t} className="chip">
+                          <span key={t} className="chip text-[10px] sm:text-[11px]">
                             {t}
                           </span>
                         ))}
                       </span>
-                      <span className="font-mono2 inline-flex shrink-0 items-center gap-1 text-xs tracking-wider text-slate-500 lowercase transition-colors group-hover:text-emerald-300">
+                      <span className="font-mono2 inline-flex shrink-0 items-center gap-1 text-[11px] sm:text-xs tracking-wider text-slate-500 lowercase transition-colors group-hover:text-emerald-300">
                         {t.cardDetails}
                         <ArrowUpRight
                           className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
@@ -344,7 +344,7 @@ export function Projects() {
             href={t.githubProfile}
             target="_blank"
             rel="noopener noreferrer"
-            className="font-mono2 inline-flex items-center gap-2 text-sm tracking-[0.1em] text-slate-400 uppercase underline-offset-4 transition-colors hover:text-emerald-300 hover:underline"
+            className="font-mono2 inline-flex items-center gap-2 text-xs sm:text-sm tracking-[0.1em] text-slate-400 uppercase underline-offset-4 transition-colors hover:text-emerald-300 hover:underline"
           >
             <GithubIcon className="h-4 w-4" aria-hidden="true" />
             {t.viewAll}
@@ -352,7 +352,7 @@ export function Projects() {
         </Reveal>
 
         {/* Navigasi antar halaman */}
-        <Reveal className="mt-14 flex flex-wrap justify-center gap-3.5">
+        <Reveal className="mt-14 sm:mt-20 flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-3.5 [&>div]:w-full sm:[&>div]:w-auto [&_a]:w-full sm:[&_a]:w-auto [&_a]:justify-center">
           <Magnet>
             <ButtonLink href={`mailto:${shared.email}`} size="lg">
               <Mail className="h-[18px] w-[18px]" aria-hidden="true" />

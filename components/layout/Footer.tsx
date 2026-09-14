@@ -21,36 +21,36 @@ export function Footer() {
       className="relative overflow-hidden border-t border-slate-900 bg-slate-950 text-slate-100"
     >
       {/* CTA besar */}
-      <div className="relative mx-auto w-full max-w-6xl px-6 pt-20 sm:pt-24">
+      <div className="relative mx-auto w-full max-w-6xl px-4 sm:px-6 pt-16 sm:pt-20 md:pt-24">
         <Reveal>
           <a
             href={`mailto:${shared.email}`}
             className="group block"
             aria-label={t.ctaAria}
           >
-            <span className="font-mono2 text-sm tracking-[0.2em] text-emerald-300 lowercase">
+            <span className="font-mono2 text-xs sm:text-sm tracking-[0.2em] text-emerald-300 lowercase">
               <span aria-hidden="true">( </span>
               {t.ctaEyebrow}
               <span aria-hidden="true"> )</span>
             </span>
-            <span className="font-display mt-4 flex flex-wrap items-center gap-x-4 text-4xl leading-[1.05] font-semibold tracking-tight text-balance text-slate-50 sm:text-5xl md:text-6xl">
+            <span className="font-display mt-3.5 sm:mt-4 flex flex-wrap items-center gap-x-3 sm:gap-x-4 text-3xl sm:text-5xl md:text-6xl leading-[1.08] sm:leading-[1.05] font-semibold tracking-tight text-balance text-slate-50">
               {t.ctaTitle}
               <em className="text-emerald-200">{t.ctaAccent}</em>
               <ArrowUpRight
                 aria-hidden="true"
-                className="h-10 w-10 text-slate-500 transition-all duration-300 group-hover:translate-x-1.5 group-hover:-translate-y-1.5 group-hover:text-emerald-300 sm:h-14 sm:w-14"
+                className="h-8 w-8 sm:h-12 sm:w-12 md:h-14 md:w-14 text-slate-500 transition-all duration-300 group-hover:translate-x-1.5 group-hover:-translate-y-1.5 group-hover:text-emerald-300"
               />
             </span>
           </a>
           <ArrowScribble
-            className="mt-6 w-20 -scale-x-100 text-slate-600"
+            className="mt-5 sm:mt-6 w-16 sm:w-20 -scale-x-100 text-slate-600"
             delay={0.4}
           />
         </Reveal>
       </div>
 
       {/* Kolom bawah */}
-      <div className="relative mx-auto grid w-full max-w-6xl gap-10 px-6 py-14 sm:grid-cols-2 sm:py-16 lg:grid-cols-[1.2fr_1fr_1fr]">
+      <div className="relative mx-auto grid w-full max-w-6xl gap-8 sm:gap-10 px-4 sm:px-6 py-12 sm:py-16 sm:grid-cols-2 lg:grid-cols-[1.2fr_1fr_1fr]">
         <div>
           <a
             href="#top"
@@ -118,7 +118,7 @@ export function Footer() {
 
       {/* Bar bawah */}
       <div className="relative border-t border-slate-900">
-        <div className="mx-auto flex w-full max-w-6xl flex-col items-center justify-between gap-2 px-6 py-6 text-[13px] text-slate-500 sm:flex-row">
+        <div className="mx-auto flex w-full max-w-6xl flex-col items-center justify-between gap-2 px-4 sm:px-6 py-5 sm:py-6 text-[13px] text-slate-500 sm:flex-row">
           <p>
             &copy; {year} {shared.name}
           </p>

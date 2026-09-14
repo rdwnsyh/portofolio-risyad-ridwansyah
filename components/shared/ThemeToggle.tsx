@@ -17,12 +17,12 @@ export function ThemeToggle() {
       aria-pressed={!dark}
       aria-label={`${content.theme.toggle} — ${dark ? content.theme.light : content.theme.dark}`}
       title={dark ? content.theme.light : content.theme.dark}
-      className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-700 bg-slate-900/60 text-slate-300 transition-all duration-300 hover:-translate-y-0.5 hover:border-emerald-300/60 hover:text-emerald-300"
+      className="flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-full border border-slate-700 bg-slate-900/60 text-slate-300 transition-all duration-300 hover:-translate-y-0.5 hover:border-emerald-300/60 hover:text-emerald-300"
     >
       {dark ? (
-        <Sun className="h-[18px] w-[18px]" aria-hidden="true" />
+        <Sun className="h-4 w-4 sm:h-[18px] sm:w-[18px]" aria-hidden="true" />
       ) : (
-        <Moon className="h-[18px] w-[18px]" aria-hidden="true" />
+        <Moon className="h-4 w-4 sm:h-[18px] sm:w-[18px]" aria-hidden="true" />
       )}
     </button>
   );

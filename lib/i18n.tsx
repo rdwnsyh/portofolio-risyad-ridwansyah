@@ -33,17 +33,22 @@ const LanguageContext = createContext<LanguageContextValue>({
 });
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  // Baca preferensi tersimpan secara lazy (tanpa effect → lolos lint react-hooks)
-  const [locale, setLocaleState] = useState<Locale>(() => {
-    if (typeof window === "undefined") return "id";
-    try {
-      return window.localStorage.getItem(STORAGE_KEY) === "en" ? "en" : "id";
-    } catch {
-      return "id";
-    }
-  });
+  // Selalu default "id" saat initial render agar SSR & Client render identik (mencegah hydration mismatch)
+  const [locale, setLocaleState] = useState<Locale>("id");
 
-  // Sinkronkan <html lang> + simpan preferensi
+  // Baca preferensi tersimpan di client setelah komponen mount
+  useEffect(() => {
+    try {
+      const saved = window.localStorage.getItem(STORAGE_KEY);
+      if (saved === "en" || saved === "id") {
+        setLocaleState(saved);
+      }
+    } catch {
+      /* abaikan */
+    }
+  }, []);
+
+  // Sinkronkan <html lang> + simpan preferensi saat locale berubah
   useEffect(() => {
     document.documentElement.lang = locale;
     try {

@@ -53,7 +53,7 @@ export function SectionHeader({
         </p>
         <h2
           className={cn(
-            "font-display mt-4 max-w-3xl text-4xl leading-[1.05] font-semibold tracking-tight text-balance text-slate-50 sm:text-5xl md:text-6xl",
+            "font-display mt-3.5 sm:mt-4 max-w-3xl text-3xl sm:text-5xl md:text-6xl leading-[1.08] sm:leading-[1.05] font-semibold tracking-tight text-balance text-slate-50",
             centered && "mx-auto",
           )}
         >

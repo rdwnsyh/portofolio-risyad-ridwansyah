@@ -14,7 +14,7 @@ export function LanguageToggle({ className }: { className?: string }) {
       role="group"
       aria-label={content.nav.languageLabel}
       className={cn(
-        "inline-flex items-center rounded-full border border-slate-700 bg-slate-900/60 p-1",
+        "inline-flex items-center rounded-full border border-slate-700 bg-slate-900/60 p-0.5 sm:p-1",
         className,
       )}
     >
@@ -26,7 +26,7 @@ export function LanguageToggle({ className }: { className?: string }) {
           aria-pressed={locale === opt}
           aria-label={`${content.nav.languageLabel}: ${opt.toUpperCase()}`}
           className={cn(
-            "font-mono2 h-8 min-w-10 rounded-full px-2.5 text-xs font-semibold tracking-[0.1em] uppercase transition-all duration-300",
+            "font-mono2 h-7 sm:h-8 min-w-8 sm:min-w-10 rounded-full px-2 sm:px-2.5 text-[11px] sm:text-xs font-semibold tracking-[0.1em] uppercase transition-all duration-300",
             locale === opt
               ? "bg-emerald-300 text-slate-950 shadow"
               : "text-slate-400 hover:text-slate-100",

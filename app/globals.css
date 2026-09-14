@@ -352,7 +352,7 @@ body {
 .drop-cap > p:first-child::first-letter {
   font-family: var(--font-display), "Georgia", serif;
   font-weight: 600;
-  font-size: 3.4em;
+  font-size: clamp(2.4em, 7vw, 3.4em);
   float: left;
   line-height: 0.82;
   padding: 0.08em 0.12em 0 0;
@@ -367,12 +367,18 @@ body {
 .arch-frame::before {
   content: "";
   position: absolute;
-  inset: -13px;
+  inset: -10px;
   border: 1.5px solid rgba(110, 231, 183, 0.4);
   border-radius: 46% 46% calc(1rem + 10px) calc(1rem + 10px);
   transform: rotate(1.8deg);
   pointer-events: none;
   transition: transform 0.5s var(--ease-standard);
+}
+
+@media (min-width: 640px) {
+  .arch-frame::before {
+    inset: -13px;
+  }
 }
 
 .arch-frame:hover::before {

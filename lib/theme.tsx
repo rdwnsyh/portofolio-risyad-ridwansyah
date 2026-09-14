@@ -1,5 +1,6 @@
 "use client";
 
+import { useServerInsertedHTML } from "next/navigation";
 import {
   createContext,
   useCallback,
@@ -12,18 +13,16 @@ import {
 export type Theme = "dark" | "light";
 
 const STORAGE_KEY = "portfolio-theme";
+const THEME_SCRIPT = `(function(){try{var t=localStorage.getItem("portfolio-theme");if(!t){t=window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";}if(t==="light"){document.documentElement.classList.add("light");}}catch(e){}})();`;
 
-function initialTheme(): Theme {
-  if (typeof window === "undefined") return "dark";
-  try {
-    const saved = window.localStorage.getItem(STORAGE_KEY);
-    if (saved === "light" || saved === "dark") return saved;
-    return window.matchMedia("(prefers-color-scheme: light)").matches
-      ? "light"
-      : "dark";
-  } catch {
-    return "dark";
-  }
+export function ThemeScript() {
+  useServerInsertedHTML(() => (
+    <script
+      key="theme-init"
+      dangerouslySetInnerHTML={{ __html: THEME_SCRIPT }}
+    />
+  ));
+  return null;
 }
 
 type ThemeContextValue = {
@@ -37,7 +36,24 @@ const ThemeContext = createContext<ThemeContextValue>({
 });
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [theme, setTheme] = useState<Theme>(initialTheme);
+  // Selalu default "dark" saat initial render agar SSR & Client render identik (mencegah hydration mismatch)
+  const [theme, setTheme] = useState<Theme>("dark");
+
+  // Baca preferensi tersimpan di client setelah komponen mount
+  useEffect(() => {
+    try {
+      const saved = window.localStorage.getItem(STORAGE_KEY);
+      if (saved === "light" || saved === "dark") {
+        setTheme(saved);
+        return;
+      }
+      if (window.matchMedia("(prefers-color-scheme: light)").matches) {
+        setTheme("light");
+      }
+    } catch {
+      /* abaikan */
+    }
+  }, []);
 
   useEffect(() => {
     document.documentElement.classList.toggle("light", theme === "light");
@@ -55,6 +71,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
+      <ThemeScript />
       {children}
     </ThemeContext.Provider>
   );

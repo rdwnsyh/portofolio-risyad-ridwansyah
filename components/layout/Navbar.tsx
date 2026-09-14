@@ -30,7 +30,7 @@ export function Navbar() {
     >
       <nav
         aria-label="Main navigation"
-        className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between gap-3 px-6"
+        className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between gap-2 px-4 sm:px-6"
       >
         {/* Monogram */}
         <a
@@ -41,13 +41,13 @@ export function Navbar() {
           RR<span className="text-emerald-300">.</span>
         </a>
 
-        {/* Link desktop */}
-        <ul className="hidden items-center gap-7 md:flex">
+        {/* Link desktop & tablet */}
+        <ul className="hidden items-center gap-4.5 lg:gap-7 md:flex">
           {nav.links.map(({ label, href }) => (
             <li key={label}>
               <a
                 href={href}
-                className="font-mono2 text-[13px] tracking-[0.14em] text-slate-400 uppercase transition-colors hover:text-emerald-300"
+                className="font-mono2 text-[12px] lg:text-[13px] tracking-[0.14em] text-slate-400 uppercase transition-colors hover:text-emerald-300"
               >
                 {label}
               </a>
@@ -55,21 +55,21 @@ export function Navbar() {
           ))}
         </ul>
 
-        <div className="hidden items-center gap-3 md:flex">
+        <div className="hidden items-center gap-2.5 lg:gap-3 md:flex">
           <ThemeToggle />
           <LanguageToggle />
           <a
             href={shared.cvPath}
             download={hero.cvFileName}
-            className="font-mono2 inline-flex h-10 items-center gap-2 rounded-full border border-slate-700 px-5 text-[13px] tracking-[0.1em] text-slate-200 uppercase transition-all hover:-translate-y-0.5 hover:border-emerald-300/60 hover:text-emerald-200"
+            className="font-mono2 inline-flex h-9 lg:h-10 items-center gap-1.5 lg:gap-2 rounded-full border border-slate-700 px-3.5 lg:px-5 text-[12px] lg:text-[13px] tracking-[0.1em] text-slate-200 uppercase transition-all hover:-translate-y-0.5 hover:border-emerald-300/60 hover:text-emerald-200"
           >
-            <Download className="h-4 w-4" aria-hidden="true" />
+            <Download className="h-3.5 w-3.5 lg:h-4 lg:w-4" aria-hidden="true" />
             CV
           </a>
         </div>
 
         {/* Kontrol mobile */}
-        <div className="flex items-center gap-2 md:hidden">
+        <div className="flex items-center gap-1.5 sm:gap-2 md:hidden">
           <ThemeToggle />
           <LanguageToggle />
           <button
@@ -77,12 +77,12 @@ export function Navbar() {
             onClick={() => setOpen((v) => !v)}
             aria-expanded={open}
             aria-label={open ? nav.menuClose : nav.menuOpen}
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-800 text-slate-200"
+            className="flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-full border border-slate-800 text-slate-200 transition-colors hover:border-slate-600"
           >
             {open ? (
-              <X className="h-5 w-5" aria-hidden="true" />
+              <X className="h-4 w-4 sm:h-5 sm:w-5" aria-hidden="true" />
             ) : (
-              <Menu className="h-5 w-5" aria-hidden="true" />
+              <Menu className="h-4 w-4 sm:h-5 sm:w-5" aria-hidden="true" />
             )}
           </button>
         </div>

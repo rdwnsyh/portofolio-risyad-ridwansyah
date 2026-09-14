@@ -65,15 +65,15 @@ function InfoIcon({ kind, className }: { kind: string; className?: string }) {
 }
 
 const inputClass =
-  "h-12 w-full rounded-xl border border-slate-700 bg-slate-950/70 px-4 text-[15px] text-slate-100 placeholder:text-slate-500 transition-colors focus:border-emerald-300/60 focus:outline-none";
+  "h-12 w-full rounded-xl border border-slate-700 bg-slate-950/70 px-4 text-base sm:text-[15px] text-slate-100 placeholder:text-slate-500 transition-colors focus:border-emerald-300/60 focus:outline-none";
 
   return (
     <section
       id="contact"
       aria-labelledby="contact-heading"
-      className="relative scroll-mt-20 border-t border-slate-900 bg-slate-950 py-24 text-slate-100 sm:py-28"
+      className="relative scroll-mt-20 border-t border-slate-900 bg-slate-950 py-16 sm:py-24 md:py-28 text-slate-100"
     >
-      <div className="relative mx-auto w-full max-w-6xl px-6">
+      <div className="relative mx-auto w-full max-w-6xl px-4 sm:px-6">
         <SectionHeader
           slug={t.slug}
           num={t.num}
@@ -84,7 +84,7 @@ const inputClass =
           sub={t.tagline}
         />
 
-        <div className="mt-14 grid items-start gap-6 lg:grid-cols-[0.9fr_1.1fr]">
+        <div className="mt-12 sm:mt-14 grid items-start gap-6 lg:grid-cols-[0.9fr_1.1fr]">
           {/* Sisi info kontak */}
           <Reveal as="aside" className="h-full">
             <div className="flex h-full flex-col gap-6">
