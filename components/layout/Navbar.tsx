@@ -42,12 +42,12 @@ export function Navbar() {
         </a>
 
         {/* Link desktop & tablet */}
-        <ul className="hidden items-center gap-4.5 lg:gap-7 md:flex">
+        <ul className="hidden items-center gap-5 xl:flex xl:gap-7">
           {nav.links.map(({ label, href }) => (
-            <li key={label}>
+            <li key={href} className="shrink-0">
               <a
                 href={href}
-                className="font-mono2 text-[12px] lg:text-[13px] tracking-[0.14em] text-slate-400 uppercase transition-colors hover:text-emerald-300"
+                className="font-mono2 whitespace-nowrap text-[12px] tracking-[0.12em] text-slate-400 uppercase transition-colors hover:text-emerald-300"
               >
                 {label}
               </a>
@@ -55,7 +55,7 @@ export function Navbar() {
           ))}
         </ul>
 
-        <div className="hidden items-center gap-2.5 lg:gap-3 md:flex">
+        <div className="hidden items-center gap-2.5 xl:flex xl:gap-3 xl:border-l xl:border-slate-800 xl:pl-5">
           <ThemeToggle />
           <LanguageToggle />
           <a
@@ -69,7 +69,7 @@ export function Navbar() {
         </div>
 
         {/* Kontrol mobile */}
-        <div className="flex items-center gap-1.5 sm:gap-2 md:hidden">
+        <div className="flex items-center gap-1.5 sm:gap-2 xl:hidden">
           <ThemeToggle />
           <LanguageToggle />
           <button
@@ -90,30 +90,36 @@ export function Navbar() {
 
       {/* Panel mobile */}
       {open && (
-        <div className="border-t border-slate-800/80 bg-slate-950/95 backdrop-blur-md md:hidden">
-          <ul className="mx-auto w-full max-w-6xl space-y-1 px-6 py-4">
-            {nav.links.map(({ label, href }) => (
-              <li key={label}>
-                <a
-                  href={href}
-                  onClick={() => setOpen(false)}
-                  className="font-mono2 block rounded-xl px-3 py-3 text-sm tracking-[0.14em] text-slate-300 uppercase transition-colors hover:bg-slate-900 hover:text-emerald-300"
-                >
-                  {label}
-                </a>
-              </li>
-            ))}
-            <li className="pt-2 pb-1">
+        <div className="border-t border-slate-800/80 bg-slate-950/95 backdrop-blur-md xl:hidden">
+          <nav
+            aria-label="Mobile navigation"
+            className="mx-auto max-h-[calc(100dvh-4rem)] w-full max-w-6xl overflow-y-auto px-4 py-3 sm:px-6 sm:py-4"
+          >
+            <ul className="flex flex-col gap-1">
+              {nav.links.map(({ label, href }) => (
+                <li key={href}>
+                  <a
+                    href={href}
+                    onClick={() => setOpen(false)}
+                    className="font-mono2 block rounded-xl px-3 py-3 text-[12px] leading-none tracking-[0.16em] text-slate-300 uppercase transition-colors hover:bg-slate-900 hover:text-emerald-300"
+                  >
+                    {label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <div className="mt-3 border-t border-slate-800 pt-3">
               <a
                 href={shared.cvPath}
                 download={hero.cvFileName}
-                className="inline-flex h-11 items-center gap-2 rounded-full bg-white px-6 text-sm font-semibold text-slate-950"
+                onClick={() => setOpen(false)}
+                className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-full bg-white px-6 text-sm font-semibold text-slate-950"
               >
                 <Download className="h-4 w-4" aria-hidden="true" />
                 {hero.ctaCV}
               </a>
-            </li>
-          </ul>
+            </div>
+          </nav>
         </div>
       )}
     </header>

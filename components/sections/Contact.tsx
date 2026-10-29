@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, type FormEvent } from "react";
 import {
@@ -46,7 +46,7 @@ export function Contact() {
   const onSubmit = (e: FormEvent) => {
     e.preventDefault();
     const subject = encodeURIComponent(`${t.mailSubject} ${name}`);
-    const body = encodeURIComponent(`${message}\n\n— ${name} (${email})`);
+    const body = encodeURIComponent(`${message}\n\nâ€” ${name} (${email})`);
     window.location.href = `mailto:${shared.email}?subject=${subject}&body=${body}`;
     setSubmitted(true);
   };
@@ -71,7 +71,7 @@ const inputClass =
     <section
       id="contact"
       aria-labelledby="contact-heading"
-      className="relative scroll-mt-20 border-t border-slate-900 bg-slate-950 py-16 sm:py-24 md:py-28 text-slate-100"
+      className="relative scroll-mt-16 border-t border-slate-900 bg-slate-950 pt-3 pb-8 sm:pt-4 sm:pb-10 md:pt-6 md:pb-12 text-slate-100"
     >
       <div className="relative mx-auto w-full max-w-6xl px-4 sm:px-6">
         <SectionHeader

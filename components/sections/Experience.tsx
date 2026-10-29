@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useRef } from "react";
 import { FolderOpen, Mail } from "lucide-react";
@@ -36,7 +36,7 @@ export function Experience() {
     <section
       id="experience"
       aria-label={`${experience.title} ${experience.accent}`}
-      className="relative scroll-mt-20 border-t border-slate-900 bg-slate-950 py-16 sm:py-24 md:py-28 text-slate-100"
+      className="relative scroll-mt-16 border-t border-slate-900 bg-slate-950 pt-3 pb-8 sm:pt-4 sm:pb-10 md:pt-6 md:pb-12 text-slate-100"
     >
       <div className="relative mx-auto w-full max-w-6xl px-4 sm:px-6">
         <SectionHeader
@@ -94,6 +94,22 @@ export function Experience() {
                     <p className="mb-4 max-w-[640px] text-sm sm:text-[15px] leading-[1.7] text-slate-300/90">
                       {item.description}
                     </p>
+                    {item.highlights && item.highlights.length > 0 && (
+                      <ul className="mb-4 flex max-w-[680px] flex-col gap-2.5">
+                        {item.highlights.map((point) => (
+                          <li
+                            key={point}
+                            className="flex items-start gap-2.5 text-sm sm:text-[15px] leading-[1.7] text-slate-300/90"
+                          >
+                            <span
+                              aria-hidden="true"
+                              className="mt-[9px] h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-300/80"
+                            />
+                            <span>{point}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
                     <div className="flex flex-wrap gap-1.5">
                       {item.mainTech.map((tech) => (
                         <span key={tech} className="chip text-[10px] sm:text-[11px]">
@@ -110,7 +126,7 @@ export function Experience() {
             aria-hidden="true"
             className="font-display mt-7 ml-[18px] sm:ml-[34px] text-base sm:text-lg text-slate-500 italic"
           >
-            — {experience.endNote}{" "}
+            â€” {experience.endNote}{" "}
             <span className="text-emerald-300">{experience.endAccent}</span>
           </p>
         </div>

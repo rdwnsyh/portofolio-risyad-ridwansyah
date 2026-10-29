@@ -9,6 +9,8 @@ export const idContent = {
       { label: "Tentang", href: "#about" },
       { label: "Pengalaman", href: "#experience" },
       { label: "Proyek", href: "#projects" },
+      { label: "Sertifikasi", href: "#certificates" },
+      { label: "Pencapaian", href: "#achievements" },
       { label: "Keahlian", href: "#skills" },
       { label: "Kontak", href: "#contact" },
     ],
@@ -32,7 +34,7 @@ export const idContent = {
       "Lulusan D3 Teknik Informatika yang berfokus pada pengembangan web modern, backend yang scalable, hingga pengujian kualitas perangkat lunak (QA) — menulis kode yang bersih, teruji, dan siap produksi.",
     ctaProjects: "Lihat Proyek",
     ctaCV: "Unduh CV",
-    cvFileName: "CV-Risyad-Ridwansyah.pdf",
+    cvFileName: "CV_Risyad_Ridwansyah.pdf",
     scrollAria: "Gulir ke bagian proyek",
     socialGithub: "GitHub Risyad Ridwansyah",
     socialLinkedin: "LinkedIn Risyad Ridwansyah",
@@ -115,26 +117,42 @@ export const idContent = {
     pageContact: "Ajak Kerja Sama",
     items: [
       {
-        role: "Software Quality Assurance Intern",
-        company: "PT Primalogic Global Teknologi",
+        role: "SQA (Software Quality Assurance) Intern",
+        company:
+          "PT Primalogic Global Teknologi · Dana Pensiun PT Pupuk Kalimantan Timur",
         initials: "PG",
-        period: "Mar 2026 – Jun 2026",
+        period: "Maret 2026 – Juni 2026",
         description:
-          "Menguji modul Administrator, Akuntansi, dan Keanggotaan sistem Dana Pensiun PT Pupuk Kaltim dengan Black-box Testing dan Vendor Integration Testing (VIT). Berfokus pada alur Defect Tracking dan Bug Life Cycle, kolaborasi bersama tim backend mengidentifikasi serta menyelesaikan 102 bug (resolution rate 84%) dan menekan eror kritis sebelum handover ke klien.",
+          "Magang Software Quality Assurance pada sistem dana pensiun DP PKT — pengujian black-box dan integrasi vendor.",
+        highlights: [
+          "Memimpin tim 4 QA intern: melaporkan progres dan pencapaian tim kepada QA Lead setiap hari, serta mengoordinasikan dan mendelegasikan tugas yang diberikan QA Lead.",
+          "Melaksanakan dan menyelesaikan Vendor Integration Testing (VIT) serta black-box testing pada sistem dana pensiun DP PKT, mencakup modul Administrator, Akuntansi, dan Keanggotaan.",
+          "Mengelola defect sepanjang fase pengujian dalam Software Development Life Cycle (SDLC) menggunakan issue log yang diklasifikasikan berdasarkan prioritas dan severity, serta memverifikasi perbaikan bersama tim backend sebelum deployment ke production.",
+          "Menangani 102 bug dengan tingkat penyelesaian 84%, mendukung sistem yang stabil untuk handover ke klien.",
+        ],
         mainTech: [
           "Black-box Testing",
           "Vendor Integration Testing",
           "Defect Tracking",
           "Bug Life Cycle",
+          "SDLC",
         ],
       },
       {
         role: "Fullstack Developer Intern",
         company: "Museum Geologi Bandung",
         initials: "MG",
-        period: "Jun 2024 – Des 2024",
+        period: "Juni 2024 – Desember 2024",
         description:
-          "Merancang sistem manajemen koleksi KaGeo untuk mentransformasi pencatatan manual museum menjadi platform digital tersentralisasi. Terintegrasi dengan REST API Kementerian ESDM serta CAS Single Sign-On (SSO), dilanjutkan optimasi backend hingga berhasil deploy ke production.",
+          "KaGeo Collection Storage Management System — menggantikan pencatatan manual dengan basis data terpusat.",
+        highlights: [
+          "Memimpin tim teknis beranggotakan 3 developer dalam membangun sistem manajemen koleksi KaGeo dengan Laravel, React.js, Tailwind CSS, dan PostgreSQL, menggantikan pencatatan manual dengan basis data terpusat.",
+          "Melaporkan progres pengembangan dan milestone kepada stakeholder Museum Geologi setiap tiga minggu.",
+          "Mengarahkan para developer dalam menerapkan proses bisnis museum ke dalam sistem, serta merekomendasikan solusi proses bisnis kepada museum.",
+          "Mengintegrasikan REST API Kementerian Energi dan Sumber Daya Mineral (ESDM), termasuk Single Sign-On (SSO) berbasis CAS, SIPEG untuk sinkronisasi data kepegawaian, dan layanan data wilayah.",
+          "Menerapkan alur autentikasi dan otorisasi, serta meningkatkan stabilitas melalui debugging backend dan optimasi kinerja.",
+          "Mendeploy aplikasi ke lingkungan hosting production untuk penggunaan staf internal.",
+        ],
         mainTech: [
           "Laravel",
           "React.js",
@@ -146,11 +164,16 @@ export const idContent = {
       },
       {
         role: "Web Developer Intern",
-        company: "Balai Besar Survei & Pemetaan Geologi Kelautan",
+        company: "Balai Besar Survei dan Pemetaan Geologi Kelautan",
         initials: "BB",
-        period: "Jun 2022 – Sep 2022",
+        period: "Juni 2022 – September 2022",
         description:
-          "Mendukung digitalisasi internal dengan mengembangkan dua aplikasi web operasional untuk manajemen rapat dan akses peta riset, dengan perancangan basis data terstruktur untuk menjaga keandalan server-side dan mengoptimalkan alur kerja staf.",
+          "Marine Research Information & Meeting Management System — dua aplikasi web responsif untuk kebutuhan internal.",
+        highlights: [
+          "Mengembangkan dua aplikasi web responsif dengan Laravel dan Bootstrap untuk manajemen rapat dan akses peta riset.",
+          "Merancang basis data MySQL untuk penyimpanan dan pencarian data, serta menerapkan pengamanan dalam penanganan data.",
+          "Membantu penyiapan jaringan dan konversi dokumen untuk upaya digitalisasi organisasi.",
+        ],
         mainTech: ["Laravel", "Bootstrap", "MySQL"],
       },
     ],
@@ -267,7 +290,7 @@ export const idContent = {
   },
   skills: {
     slug: "// keahlian",
-    num: "04",
+    num: "07",
     label: "Keahlian",
     title: "Technical",
     accent: "Skills",
@@ -334,7 +357,7 @@ export const idContent = {
   },
   contact: {
     slug: "// kontak",
-    num: "05",
+    num: "08",
     label: "Kontak",
     title: "Hubungi",
     accent: "Saya",
@@ -364,9 +387,10 @@ export const idContent = {
     successAgain: "Kirim Lagi",
   },
   footer: {
-    ctaEyebrow: "ada proyek dalam pikiran?",
-    ctaTitle: "Mari bangun sesuatu",
-    ctaAccent: "yang hebat",
+    ctaLabel: "Siap berdiskusi untuk proyek Anda?",
+    ctaTitle: "Ayo bangun sesuatu yang",
+    ctaAccent: "berguna",
+    ctaButton: "Kirim Pesan",
     ctaAria: "Hubungi Risyad via email untuk proyek",
     tagline:
       "Software Engineer yang merancang pengalaman web modern — bersih, teruji, dan siap produksi.",
@@ -375,12 +399,193 @@ export const idContent = {
     logoAria: "Risyad Ridwansyah — kembali ke atas",
     builtWith: "Dibangun dengan Next.js & Tailwind CSS",
   },
+  certificates: {
+    slug: "Sertifikasi",
+    num: "05",
+    label: "Pencapaian",
+    title: "Sertifikasi dan",
+    accent: "Pelatihan",
+    tagline:
+      "Kumpulan sertifikasi, pelatihan, dan peran kepemimpinan yang mendukung perjalanan profesional.",
+    items: [
+      {
+        title: "Sertifikat PKM 2025 — Workshop Laravel SMKN 2 Cimahi",
+        issuer: "Universitas Logistik dan Bisnis Internasional (ULBI)",
+        date: "17 – 18 September 2025",
+        image: "/images/sertifikat/Sertifikat PKM 2025 Risyad.jpg",
+        type: "image",
+        description:
+          "Kegiatan: menjadi instruktur/narasumber workshop bootcamp Laravel bagi 32 siswa jurusan RPL di SMKN 2 Cimahi, menyusun dan menyampaikan materi hands-on pengembangan aplikasi web. Output: peserta mampu membangun aplikasi web dasar dengan Laravel, dan kegiatan terdokumentasi sebagai luaran program Pengabdian Kepada Masyarakat ULBI.",
+        competencies: [
+          "Instruktur workshop Laravel",
+          "Mengajar 32 siswa jurusan RPL",
+          "Materi hands-on pengembangan web",
+          "Komunikasi teknis",
+        ],
+      },
+      {
+        title: "Sertifikasi Intern Internship 2026",
+        issuer: "Universitas Logistik dan Bisnis Internasional (ULBI)",
+        date: "2026",
+        image: "/images/sertifikat/sertifikat_internship_ulbi2026_risyad.jpg",
+        type: "image",
+        description:
+          "Kegiatan: magang Software Quality Assurance di PT Primalogic Global Teknologi, menguji modul Administrator, Akuntansi, dan Keanggotaan sistem Dana Pensiun PT Pupuk Kaltim dengan black-box testing dan Vendor Integration Testing. Output: 102 bug teridentifikasi dengan resolution rate 84%, menekan eror kritis sebelum handover ke klien.",
+        competencies: [
+          "Black-box Testing",
+          "Vendor Integration Testing",
+          "Defect Tracking & Bug Life Cycle",
+          "QA sistem Dana Pensiun",
+        ],
+      },
+      {
+        title: "BC400 – Introduction to the ABAP Workbench",
+        issuer: "SAP",
+        date: "—",
+        image:
+          "/images/sertifikat/sertifikat BC400 – Introduction to the ABAP Workbench_Risyad_Ridwansyah.jpeg",
+        type: "image",
+        description:
+          "Kegiatan: pelatihan dasar SAP ABAP Workbench (BC400) — pengenalan editor, pengelolaan objek ABAP, dan debugging. Output: sertifikasi kompetensi dasar pemrograman ABAP sebagai bekal memahami sistem SAP.",
+        competencies: [
+          "Dasar SAP ABAP",
+          "ABAP Workbench & editor",
+          "Pengelolaan objek ABAP",
+          "Debugging dasar",
+        ],
+      },
+      {
+        title: "Sertifikat PKL BBSPGL",
+        issuer: "Balai Besar Survei dan Pemetaan Geologi Kelautan (BBSPGL)",
+        date: "Juni – September 2022",
+        image: "/images/sertifikat/sertif pkl bbspgl_Risyad Ridwansyah.jpeg",
+        type: "image",
+        description:
+          "Kegiatan: PKL sebagai web developer intern, mengembangkan dua aplikasi web operasional (manajemen rapat dan akses peta riset) dengan Laravel, Bootstrap, dan MySQL. Output: dua aplikasi internal dengan basis data terstruktur yang mempercepat alur kerja staf.",
+        competencies: [
+          "Laravel, Bootstrap, MySQL",
+          "Pengembangan 2 aplikasi web internal",
+          "Perancangan basis data",
+          "Digitalisasi alur kerja",
+        ],
+      },
+      {
+        title: "Magang Fullstack Developer – Museum Geologi (Matching Fund 2024)",
+        issuer:
+          "Museum Geologi Bandung (Afiliasi Kedaireka Kampus Merdeka & ULBI)",
+        date: "Juli – Desember 2024 (6 bulan)",
+        image: "/images/sertifikat/kedaireka_Risyad Ridwansyah.png",
+        type: "image",
+        description:
+          "Kegiatan: memimpin 3 pengembang membangun sistem koleksi KaGeo dengan Laravel, React.js, Tailwind CSS, dan PostgreSQL, terintegrasi REST API Kementerian ESDM, CAS SSO, dan SIPEG. Output: pencatatan koleksi manual menjadi basis data terpusat, aplikasi lolos QA dan di-deploy ke server production internal, dengan pelaporan progres tiap tiga minggu ke stakeholder museum.",
+        competencies: [
+          "Technical lead 3 pengembang",
+          "Laravel, React.js, Tailwind, PostgreSQL",
+          "REST API ESDM, CAS SSO, SIPEG",
+          "QA, optimasi kinerja & deployment",
+        ],
+      },
+      {
+        title: "Ketua Pelaksana Bootcamp Laravel 2025",
+        issuer: "HIMATIF Universitas Logistik dan Bisnis Internasional (ULBI)",
+        date: "24 & 31 Mei 2025",
+        image:
+          "/images/sertifikat/ketua pelaksana bootcamp laravel 2025_Risyad Ridwansyah.png",
+        type: "image",
+        description:
+          "Kegiatan: memimpin perencanaan hingga eksekusi Laravel Bootcamp 2025, termasuk promosi, pendaftaran peserta, serta kesiapan modul dan ruangan. Output: acara berjalan sesuai jadwal dan anggaran dengan partisipasi aktif mahasiswa.",
+        competencies: [
+          "Manajemen proyek end-to-end",
+          "Kepemimpinan & koordinasi divisi",
+          "Manajemen waktu & anggaran",
+          "Logistik acara",
+        ],
+      },
+      {
+        title: "Pemateri Bootcamp Laravel 2025",
+        issuer: "HIMATIF Universitas Logistik dan Bisnis Internasional (ULBI)",
+        date: "24 & 31 Mei 2025",
+        image:
+          "/images/sertifikat/pemateri bootcamp laravel 2025_Risyad Ridwansyah.png",
+        type: "image",
+        description:
+          "Kegiatan: instruktur utama pelatihan To-Do List Laravel untuk 19 peserta, mencakup MVC, MySQL, autentikasi, CRUD Eloquent, dashboard Bootstrap + Blade, hingga deployment. Output: peserta berhasil membangun aplikasi To-Do List end-to-end.",
+        competencies: [
+          "Instruktur teknis",
+          "Laravel, MVC, MySQL, Eloquent",
+          "Autentikasi & Blade + Bootstrap",
+          "Best practices & deployment",
+        ],
+      },
+    ],
+    view: "Lihat Sertifikat",
+    close: "Tutup",
+    details: "Detail Sertifikat",
+    competencies: "Kompetensi yang Diperoleh",
+    issuer: "Penyelenggara",
+    date: "Tanggal",
+  },
+  achievements: {
+    slug: "// pencapaian",
+    num: "06",
+    label: "Rekam Jejak",
+    title: "Pencapaian &",
+    accent: "Kontribusi",
+    tagline:
+      "Publikasi teknis, proyek berskala enterprise, dan kontribusi pendidikan digital yang memvalidasi kompetensi.",
+    items: [
+      {
+        category: "Publikasi Buku Teknis",
+        icon: "book",
+        title:
+          "Penulis Buku Ber-ISBN: Membangun Aplikasi To-Do-List Dari Nol",
+        org: "PT. FAASLIB SERAMBI MEDIA",
+        date: "30 Oktober 2025",
+        link: "https://faaslibsmedia.com/Buku/Detail/Membangun-Aplikasi-To-Do-List-Dari-Nol",
+        linkLabel: "Lihat Buku",
+        description:
+          "Menulis dan menerbitkan buku panduan praktis setebal 154 halaman (ISBN: 9786340453935) yang menjembatani teori dan praktik pengembangan web bagi pemula. Menggunakan framework Laravel, buku ini membedah studi kasus proyek nyata dari awal hingga akhir. Pencapaian ini memvalidasi penguasaan teknis tingkat lanjut pada ekosistem Laravel dan mendemonstrasikan kemampuan menyusun dokumentasi teknis terstruktur, sebuah kompetensi krusial bagi posisi Web Developer dan Quality Assurance.",
+      },
+      {
+        category: "Proyek Skala Enterprise",
+        icon: "building",
+        title: "Penyelesaian Magang Kerja Penuh Waktu (Fullstack Developer)",
+        org: "Museum Geologi Bandung",
+        date: "6 Januari 2025",
+        description:
+          "Menyelesaikan program magang intensif selama 6 bulan dengan rekam jejak memimpin tim beranggotakan 3 pengembang. Berhasil merancang dan mendeploy Sistem Manajemen Penyimpanan Koleksi KaGeo menggunakan Laravel, React.js, dan PostgreSQL, serta mengeksekusi integrasi REST API berskala kementerian, termasuk Single Sign-On (SSO) CAS dan sinkronisasi data SIPEG. Pencapaian ini membuktikan ketahanan bekerja di lingkungan produksi nyata dan kemampuan memanajemen rilis perangkat lunak.",
+      },
+      {
+        category: "Pengabdian Kepada Masyarakat",
+        icon: "teaching",
+        title: "Instruktur Utama Workshop Bootcamp Laravel (PKM)",
+        org: "Universitas Logistik dan Bisnis Internasional (ULBI)",
+        date: "18 September 2025",
+        description:
+          "Terpilih sebagai pemateri dan instruktur pada program Peningkatan Kompetensi Pemrograman Web bagi siswa Rekayasa Perangkat Lunak (RPL) di SMKN 2 Cimahi. Membimbing sesi hands-on secara langsung, mendemonstrasikan pemahaman mendalam terkait arsitektur Laravel, sekaligus melatih kemampuan komunikasi teknis (technical communication) yang sangat dibutuhkan untuk melakukan code review dan menjabarkan hasil testing (bug report) dalam tim pengembangan perangkat lunak.",
+      },
+      {
+        category: "Publikasi Jurnal Ilmiah",
+        icon: "journal",
+        title:
+          "Penulis Artikel Jurnal: Improving Web Programming Competence Through Laravel Bootcamp for Vocational High School Students",
+        org: "MERPATI — Universitas Logistik dan Bisnis Internasional",
+        date: "15 September 2025",
+        link: "https://ejurnal.ulbi.ac.id/index.php/merpati/article/view/4520",
+        linkLabel: "Baca Jurnal",
+        description:
+          "Berkontribusi sebagai penulis pada artikel pengabdian masyarakat yang diterbitkan di Jurnal MERPATI Vol. 7 No. 1 (2025) dengan DOI 10.36618/merpati.v7i1.4520. Artikel ini mengevaluasi bootcamp Laravel berbasis project-based learning bagi 40 siswa SMKN 2 Cimahi: skor rata-rata pre-test 46,25 meningkat menjadi 72,80 pada post-test, dengan 85% peserta memahami konsep MVC, 90% mengimplementasikan CRUD, dan 80% menguasai autentikasi. Pencapaian ini mendemonstrasikan kemampuan menulis ilmiah, analisis data evaluasi, dan dokumentasi teknis yang terukur.",
+      },
+    ],
+    orgLabel: "Penerbit / Penyelenggara",
+    dateLabel: "Tanggal",
+  },
   shared: {
     name: "Risyad Ridwansyah",
     github: "https://github.com/rdwnsyh",
     linkedin: "https://www.linkedin.com/in/risyad-ridwansyah/",
     email: "risyadridwansyah@gmail.com",
-    cvPath: "/CV-Risyad-Ridwansyah.pdf",
+    cvPath: "/CV_Risyad_Ridwansyah.pdf",
     projectsAnchor: "#projects",
   },
   theme: {

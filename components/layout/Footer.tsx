@@ -7,7 +7,10 @@ import { ArrowScribble } from "@/components/shared/Doodles";
 import { Reveal } from "@/components/shared/Reveal";
 
 export function Footer() {
-  const { footer: t, nav, shared } = useContent();
+  const content = useContent();
+  const t = content.footer;
+  const nav = content.nav;
+  const shared = content.shared;
   const year = new Date().getFullYear();
 
   const socialLinks = [
@@ -30,7 +33,7 @@ export function Footer() {
           >
             <span className="font-mono2 text-xs sm:text-sm tracking-[0.2em] text-emerald-300 lowercase">
               <span aria-hidden="true">( </span>
-              {t.ctaEyebrow}
+              {t.ctaLabel}
               <span aria-hidden="true"> )</span>
             </span>
             <span className="font-display mt-3.5 sm:mt-4 flex flex-wrap items-center gap-x-3 sm:gap-x-4 text-3xl sm:text-5xl md:text-6xl leading-[1.08] sm:leading-[1.05] font-semibold tracking-tight text-balance text-slate-50">

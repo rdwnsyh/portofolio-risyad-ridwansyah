@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import {
   createContext,
@@ -33,7 +33,6 @@ const LanguageContext = createContext<LanguageContextValue>({
 });
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  // Selalu default "id" saat initial render agar SSR & Client render identik (mencegah hydration mismatch)
   const [locale, setLocaleState] = useState<Locale>("id");
 
   // Baca preferensi tersimpan di client setelah komponen mount
@@ -41,6 +40,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     try {
       const saved = window.localStorage.getItem(STORAGE_KEY);
       if (saved === "en" || saved === "id") {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setLocaleState(saved);
       }
     } catch {

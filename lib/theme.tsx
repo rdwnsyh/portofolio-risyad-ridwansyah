@@ -36,24 +36,18 @@ const ThemeContext = createContext<ThemeContextValue>({
 });
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  // Selalu default "dark" saat initial render agar SSR & Client render identik (mencegah hydration mismatch)
-  const [theme, setTheme] = useState<Theme>("dark");
-
-  // Baca preferensi tersimpan di client setelah komponen mount
-  useEffect(() => {
+  const [theme, setTheme] = useState<Theme>(() => {
+    if (typeof window === "undefined") return "dark";
     try {
       const saved = window.localStorage.getItem(STORAGE_KEY);
-      if (saved === "light" || saved === "dark") {
-        setTheme(saved);
-        return;
-      }
-      if (window.matchMedia("(prefers-color-scheme: light)").matches) {
-        setTheme("light");
-      }
+      if (saved === "light" || saved === "dark") return saved;
+      return window.matchMedia("(prefers-color-scheme: light)").matches
+        ? "light"
+        : "dark";
     } catch {
-      /* abaikan */
+      return "dark";
     }
-  }, []);
+  });
 
   useEffect(() => {
     document.documentElement.classList.toggle("light", theme === "light");

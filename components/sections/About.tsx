@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Image from "next/image";
 import {
@@ -27,7 +27,7 @@ export function About() {
     <section
       id="about"
       aria-label={about.sectionAria}
-      className="relative scroll-mt-20 border-t border-slate-900 bg-slate-950 py-16 sm:py-24 md:py-28 text-slate-100"
+      className="relative scroll-mt-16 border-t border-slate-900 bg-slate-950 pt-3 pb-8 sm:pt-4 sm:pb-10 md:pt-6 md:pb-12 text-slate-100"
     >
       <div className="relative mx-auto w-full max-w-6xl px-4 sm:px-6">
         <SectionHeader
@@ -68,7 +68,7 @@ export function About() {
                   </span>
                 </div>
                 <small className="font-mono2 shrink-0 rounded-full border border-emerald-400/25 bg-emerald-400/10 px-2 sm:px-2.5 py-0.5 sm:py-1 text-[10px] sm:text-[11px] font-semibold whitespace-nowrap text-emerald-300">
-                  ● Available
+                  â— Available
                 </small>
               </div>
             </div>
