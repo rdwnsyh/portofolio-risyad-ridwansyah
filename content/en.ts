@@ -547,6 +547,7 @@ export const enContent: SiteContent = {
         title: "Full-Time Internship Completion (Fullstack Developer)",
         org: "Museum Geologi Bandung",
         date: "January 6, 2025",
+        image: "/images/sertifikat/kedaireka_Risyad Ridwansyah.png",
         description:
           "Completed a 6-month intensive internship with a track record of leading a team of 3 developers. Designed and deployed the KaGeo Collection Storage Management System using Laravel, React.js, and PostgreSQL, and executed ministry-scale REST API integrations including CAS Single Sign-On (SSO) and SIPEG data synchronization. This achievement proves resilience in a real production environment and the ability to manage software releases.",
       },
@@ -556,6 +557,7 @@ export const enContent: SiteContent = {
         title: "Lead Instructor of Laravel Bootcamp Workshop (PKM)",
         org: "Universitas Logistik dan Bisnis Internasional (ULBI)",
         date: "September 18, 2025",
+        image: "/images/sertifikat/Sertifikat PKM 2025 Risyad.jpg",
         description:
           "Selected as speaker and instructor in the Web Programming Competency Improvement program for Software Engineering (RPL) students at SMKN 2 Cimahi. Guided hands-on sessions directly, demonstrated in-depth understanding of Laravel architecture, and sharpened technical communication skills essential for code reviews and communicating testing results (bug reports) within a software development team.",
       },
@@ -574,6 +576,7 @@ export const enContent: SiteContent = {
     ],
     orgLabel: "Publisher / Organizer",
     dateLabel: "Date",
+    certLabel: "View Certificate",
   },
   shared: {
     name: "Risyad Ridwansyah",

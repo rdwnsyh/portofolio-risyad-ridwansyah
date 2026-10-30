@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useEffect, useRef } from "react";
 import { FolderOpen, Mail } from "lucide-react";
@@ -126,7 +126,7 @@ export function Experience() {
             aria-hidden="true"
             className="font-display mt-7 ml-[18px] sm:ml-[34px] text-base sm:text-lg text-slate-500 italic"
           >
-            â€” {experience.endNote}{" "}
+            — {experience.endNote}{" "}
             <span className="text-emerald-300">{experience.endAccent}</span>
           </p>
         </div>

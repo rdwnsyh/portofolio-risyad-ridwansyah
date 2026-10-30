@@ -552,6 +552,7 @@ export const idContent = {
         title: "Penyelesaian Magang Kerja Penuh Waktu (Fullstack Developer)",
         org: "Museum Geologi Bandung",
         date: "6 Januari 2025",
+        image: "/images/sertifikat/kedaireka_Risyad Ridwansyah.png",
         description:
           "Menyelesaikan program magang intensif selama 6 bulan dengan rekam jejak memimpin tim beranggotakan 3 pengembang. Berhasil merancang dan mendeploy Sistem Manajemen Penyimpanan Koleksi KaGeo menggunakan Laravel, React.js, dan PostgreSQL, serta mengeksekusi integrasi REST API berskala kementerian, termasuk Single Sign-On (SSO) CAS dan sinkronisasi data SIPEG. Pencapaian ini membuktikan ketahanan bekerja di lingkungan produksi nyata dan kemampuan memanajemen rilis perangkat lunak.",
       },
@@ -561,6 +562,7 @@ export const idContent = {
         title: "Instruktur Utama Workshop Bootcamp Laravel (PKM)",
         org: "Universitas Logistik dan Bisnis Internasional (ULBI)",
         date: "18 September 2025",
+        image: "/images/sertifikat/Sertifikat PKM 2025 Risyad.jpg",
         description:
           "Terpilih sebagai pemateri dan instruktur pada program Peningkatan Kompetensi Pemrograman Web bagi siswa Rekayasa Perangkat Lunak (RPL) di SMKN 2 Cimahi. Membimbing sesi hands-on secara langsung, mendemonstrasikan pemahaman mendalam terkait arsitektur Laravel, sekaligus melatih kemampuan komunikasi teknis (technical communication) yang sangat dibutuhkan untuk melakukan code review dan menjabarkan hasil testing (bug report) dalam tim pengembangan perangkat lunak.",
       },
@@ -579,6 +581,7 @@ export const idContent = {
     ],
     orgLabel: "Penerbit / Penyelenggara",
     dateLabel: "Tanggal",
+    certLabel: "Lihat Sertifikat",
   },
   shared: {
     name: "Risyad Ridwansyah",

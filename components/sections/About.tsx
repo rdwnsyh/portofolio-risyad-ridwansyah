@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import Image from "next/image";
 import {
@@ -68,7 +68,7 @@ export function About() {
                   </span>
                 </div>
                 <small className="font-mono2 shrink-0 rounded-full border border-emerald-400/25 bg-emerald-400/10 px-2 sm:px-2.5 py-0.5 sm:py-1 text-[10px] sm:text-[11px] font-semibold whitespace-nowrap text-emerald-300">
-                  â— Available
+                  ● Available
                 </small>
               </div>
             </div>

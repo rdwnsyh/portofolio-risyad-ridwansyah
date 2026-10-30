@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
@@ -167,7 +167,7 @@ function ProjectModal({
       className="fixed inset-0 z-[60] flex items-end justify-center p-3 sm:p-4 sm:items-center"
       role="dialog"
       aria-modal="true"
-      aria-label={`${t.modalClose} â€” ${item.title}`}
+      aria-label={`${t.modalClose} — ${item.title}`}
     >
       <button
         type="button"
@@ -180,7 +180,7 @@ function ProjectModal({
         <div className="p-5 sm:p-8">
           <p className="flex items-center justify-between gap-4">
             <span aria-hidden="true" className="font-mono2 text-xs text-slate-500">
-              {`â„–${String(index + 1).padStart(2, "0")}`}
+              {`№${String(index + 1).padStart(2, "0")}`}
             </span>
             <span className="font-display text-sm text-emerald-300 italic">
               {item.year}
@@ -283,7 +283,7 @@ export function Projects() {
             const featured = i === 0 || i === 3;
             const snippet =
               item.short.length > 120
-                ? `${item.short.slice(0, 120)}â€¦`
+                ? `${item.short.slice(0, 120)}…`
                 : item.short;
             return (
               <Reveal
@@ -305,7 +305,7 @@ export function Projects() {
                           aria-hidden="true"
                           className="font-mono2 mr-2 text-xs font-medium text-slate-500"
                         >
-                          {`â„–${String(i + 1).padStart(2, "0")}`}
+                          {`№${String(i + 1).padStart(2, "0")}`}
                         </span>
                         {item.title}
                       </span>

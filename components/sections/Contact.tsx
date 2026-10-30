@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState, type FormEvent } from "react";
 import {
@@ -46,7 +46,7 @@ export function Contact() {
   const onSubmit = (e: FormEvent) => {
     e.preventDefault();
     const subject = encodeURIComponent(`${t.mailSubject} ${name}`);
-    const body = encodeURIComponent(`${message}\n\nâ€” ${name} (${email})`);
+    const body = encodeURIComponent(`${message}\n\n— ${name} (${email})`);
     window.location.href = `mailto:${shared.email}?subject=${subject}&body=${body}`;
     setSubmitted(true);
   };
